@@ -1,4 +1,4 @@
-/* Global Styles */
+/* Global Styles */ 
 body {
     font-family: 'Poppins', sans-serif;
     background: url('travel.jpg');
@@ -120,7 +120,8 @@ body {
 
 .searchbox input {
     padding: 10px;
-    width: 250px;
+    width: 100%;
+    max-width: 400px;
     font-size: 16px;
     border: 1px solid #ccc;
     border-radius: 5px;
@@ -154,12 +155,14 @@ body {
 }
 
 .card {
-    background: white;
+    background: gray;
+    color: #111;
     padding: 20px;
     margin: 10px;
     border-radius: 8px;
     box-shadow: 0 2px 10px rgba(0, 0, 0, 0.1);
-    width: 300px;
+    width: calc(33.333% - 20px);
+    max-width: 300px;
 }
 
 /* Destinations Section */
@@ -169,18 +172,27 @@ body {
     color: #ccc;
 }
 
+.destinations h3 {
+    font-size: 28px;
+    margin-bottom: 20px;
+    color: white;
+}
+
 .destination-list {
     display: flex;
     justify-content: center;
+    flex-wrap: wrap;
 }
 
 .destination {
-    background: white;
+    background: gray;
+    color: #111;
     margin: 15px;
     padding: 15px;
     border-radius: 8px;
     box-shadow: 0 2px 10px rgba(0, 0, 0, 0.1);
-    width: 280px;
+    width: calc(33.333% - 30px);
+    max-width: 280px;
 }
 
 .destination img {
@@ -218,7 +230,7 @@ body {
         width: 90%;
     }
 
-    .searchBar input {
-        width: 80%;
+    .searchbox input {
+        width: 90%;
     }
 }
