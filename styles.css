@@ -44,6 +44,18 @@ body {
         color: black;
     }
 
+/* Mobile View Fix */
+    @media (max-width: 768px) {
+        .navigation ul {
+            flex-direction: column; /* Stack items vertically */
+            gap: 10px; /* Reduce gap for mobile */
+        }
+
+        .navigation ul li {
+            text-align: center;
+        }
+    }
+
 .navigation ul li a:hover {
     text-decoration: underline;
 }
