@@ -8,7 +8,7 @@
     <link rel="preconnect" href="https://fonts.googleapis.com">
     <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
     <link href="https://fonts.googleapis.com/css2?family=Poppins:wght@300;400;600&display=swap" rel="stylesheet">
-     <script src="https://kit.fontawesome.com/dfd287a03e.js" crossorigin="anonymous"></script>
+    <script src="https://kit.fontawesome.com/dfd287a03e.js" crossorigin="anonymous"></script>
     <style>
         /* Sidebar Styles */
         .sidenav {
@@ -57,7 +57,7 @@
         .openbtn {
             font-size: 20px;
             cursor: pointer;
-            background-color: none;
+            background-color: transparent;
             color: white;
             padding: 10px 15px;
             border: none;
@@ -65,18 +65,38 @@
         }
 
         /* Adjust search bar */
-        .searchBar input {
-            padding: 8px;
-            width: 250px;
-            font-size: 16px;
+        .searchbox {
+            position: relative;
+            max-width: 350px;
+            margin: auto;
         }
 
-        .searchBar button {
-            padding: 8px;
-            cursor: pointer;
-            background-color: #111;
-            color: white;
+        .searchbox input {
+            width: 100%;
+            padding: 10px;
+            font-size: 16px;
+            border: 1px solid #ccc;
+            border-radius: 20px;
+            padding-right: 40px;
+        }
+
+        .searchbox button {
+            position: absolute;
+            right: 10px;
+            top: 50%;
+            transform: translateY(-50%);
+            background: none;
             border: none;
+            cursor: pointer;
+            font-size: 18px;
+            color: #333;
+        }
+
+        /* Responsive Styles */
+        @media screen and (max-width: 600px) {
+            .searchbox {
+                max-width: 100%;
+            }
         }
 
     </style>
@@ -119,12 +139,53 @@
         <div class="container">
             <h2>Plan Your Adventure</h2>
             <p>Discover amazing destinations, create custom itineraries, and make your dream trip a reality.</p>
+            
+            <!-- Search Box with Icon -->
             <div class="searchbox">
-                <div class="row">
-                    <input type="text" id="input-box" placeholder="search anything" aria-autocomplete="off">
-                    <button><i class="fa-solid fa-magnifying-glass"></i></button>
-                </div>
-            </div>        
+                <input type="text" id="input-box" placeholder="Search anything" aria-autocomplete="off" onkeyup="showSuggestions()">
+                <button><i class="fa-solid fa-magnifying-glass"></i></button>
+            </div>
+            
+            <div id="suggestions" class="suggestion-box"></div>
+            <script>
+                const suggestions = [
+                    "Paris", "India", "New York", "London", "Tokyo", 
+                    "Beach Destinations", "Mountain Hiking", "Cultural Tours",
+                    "Food Adventures", "Cruise Trips", "Budget Travel",
+                    "Luxury Travel", "Backpacking", "Weekend Getaways"
+                ];
+            
+                function showSuggestions() {
+                    let input = document.getElementById("input-box").value.toLowerCase();
+                    let suggestionBox = document.getElementById("suggestions");
+                    suggestionBox.innerHTML = "";
+            
+                    if (input === "") {
+                        suggestionBox.style.display = "none";
+                        return;
+                    }
+            
+                    let filteredSuggestions = suggestions.filter(item => item.toLowerCase().includes(input));
+            
+                    if (filteredSuggestions.length > 0) {
+                        suggestionBox.style.display = "block";
+                        filteredSuggestions.forEach(item => {
+                            let div = document.createElement("div");
+                            div.textContent = item;
+                            div.classList.add("suggestion-item");
+                            div.onclick = function () {
+                                document.getElementById("input-box").value = item;
+                                suggestionBox.style.display = "none";
+                            };
+                            suggestionBox.appendChild(div);
+                        });
+                    } else {
+                        suggestionBox.style.display = "none";
+                    }
+                }
+            </script>
+            </div>
+
         </div>
     </section>
 
@@ -179,7 +240,7 @@
             <p>&copy; 2025 Travel Planner. All Rights Reserved.</p>
             <p>Follow us on:
                 <a href="https://www.facebook.com/">Facebook</a> |
-                <a href="https://www.instagram.com/">instagram</a> |
+                <a href="https://www.instagram.com/">Instagram</a> |
                 <a href="https://x.com/i/flow/">Twitter</a>
             </p>
         </div>
@@ -200,4 +261,3 @@
 
 </body>
 </html>
-            
