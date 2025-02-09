@@ -134,7 +134,7 @@ body {
 .searchbox button {
     padding: 10px;
     cursor: pointer;
-    background-color: #111;
+    background-color: transparent;
     color: white;
     border: none;
     border-radius: 5px;
