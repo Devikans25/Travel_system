@@ -30,7 +30,7 @@ body {
         margin: 0;
         display: flex;
         justify-content: center;
-        gap: 20px; /* Adds space between items */
+        gap: 5px; /* Adds space between items */
     }
 
     .navigation ul li {
