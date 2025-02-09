@@ -24,37 +24,56 @@ body {
 }
 
 /* Navigation */
- .navigation ul {
-        list-style: none;
-        padding: 0;
-        margin: 0;
-        display: flex;
-        justify-content: center;
-        gap: 1px; /* Adds space between items */
+ 
+/* Navigation styles */
+.navigation ul {
+    list-style-type: none;
+    padding: 0;
+    margin: 0;
+    display: flex;
+    justify-content: center;
+    gap: 20px; /* Adjusted spacing */
+}
+
+.navigation ul li {
+    display: inline-block;
+}
+
+.navigation ul li a {
+    text-decoration: none;
+    font-size: 18px;
+    padding: 10px 15px;
+    display: inline-block;
+}
+
+
+/* Mobile View Fix */
+@media (max-width: 768px) {
+    .navigation ul {
+        flex-direction: column; /* Stack items vertically */
+        gap: 10px; /* Reduce gap for mobile */
+        text-align: center;
     }
 
     .navigation ul li {
-        display: inline-block;
-        padding: 10px 15px; /* Adds padding to each item */
+        display: block;
     }
 
     .navigation ul li a {
-        text-decoration: none;
-        font-size: 18px;
-        color: black;
+        font-size: 16px; /* Reduce text size for mobile */
+        padding: 8px;
     }
 
-/* Mobile View Fix */
-    @media (max-width: 768px) {
-        .navigation ul {
-            flex-direction: column; /* Stack items vertically */
-            gap: 10px; /* Reduce gap for mobile */
-        }
-
-        .navigation ul li {
-            text-align: center;
-        }
+    .logo h1 {
+        font-size: 24px; /* Reduce heading size */
+        padding: 5px;
     }
+
+    .search-container input {
+        width: 90%; /* Make search bar responsive */
+        font-size: 16px;
+    }
+}
 
 .navigation ul li a:hover {
     text-decoration: underline;
