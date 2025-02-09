@@ -1,3 +1,4 @@
+
 /* Global Styles */ 
 body {
     font-family: 'Poppins', sans-serif;
@@ -168,6 +169,64 @@ body {
     color: white;
     border: none;
     border-radius: 5px;
+}
+.searchbox {
+    position: relative;
+    max-width: 350px;
+    margin: 20px auto; /* Centers the box horizontally */
+    display: flex;
+    align-items: center;
+    justify-content: center;
+}
+
+.searchbox input {
+    width: 100%;
+    padding: 10px;
+    font-size: 16px;
+    border: 1px solid #ccc;
+    border-radius: 20px;
+    padding-right: 40px;
+    text-align: center; /* Centers the text inside */
+}
+
+.searchbox button {
+    position: absolute;
+    right: 10px;
+    top: 50%;
+    transform: translateY(-50%);
+    background: none;
+    border: none;
+    cursor: pointer;
+    font-size: 18px;
+    color: #333;
+}
+
+/* Centering Suggestion Box */
+.suggestion-box {
+    position: absolute;
+    width: 40%;
+    background: white;
+    text-align: center;
+    color: #111;
+    border: 1px solid #ccc;
+    border-top: none;
+    display: none;
+    max-height: 40px;
+    overflow-y: auto;
+    z-index: 10;
+    transform: translateX(-50%);
+}
+
+.suggestion-item {
+    padding: 10px;
+    cursor: pointer;
+    border-bottom: 1px solid #add;
+    justify-content: center;
+    text-align: center;
+}
+
+.suggestion-item:hover {
+    background-color: #f2f2f2;
 }
 
 
