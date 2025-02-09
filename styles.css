@@ -30,7 +30,7 @@ body {
         margin: 0;
         display: flex;
         justify-content: center;
-        gap: 5px; /* Adds space between items */
+        gap: 1px; /* Adds space between items */
     }
 
     .navigation ul li {
@@ -122,13 +122,12 @@ body {
 }
 
 .searchbox input {
-    padding: 10px;
+    padding: 0;
     width: 100%;
     max-width: 400px;
     font-size: 16px;
     border: 1px solid #ccc;
     border-radius: 5px;
-    gap: 0;
 }
 
 .searchbox button {
@@ -138,7 +137,6 @@ body {
     color: white;
     border: none;
     border-radius: 5px;
-    gap: 0;
 }
 
 /* Features Section */
