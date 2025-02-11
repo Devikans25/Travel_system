@@ -1,0 +1,202 @@
+/* General Styles */
+body {
+    font-family: 'Poppins', sans-serif;
+    margin: 0;
+    padding: 0;
+    background-color: #f8f9fa;
+    color: #333;
+}
+
+.container {
+    width: 90%;
+    margin: auto;
+    max-width: 1200px;
+    text-align: center;
+}
+
+/* Header Styles */
+.header {
+    background: #007bff;
+    color: white;
+    padding: 15px 0;
+    position: relative;
+    text-align: center;
+}
+
+.navigation ul {
+    list-style: none;
+    padding: 0;
+}
+
+.navigation ul li {
+    display: inline;
+    margin: 0 15px;
+}
+
+.navigation ul li a {
+    color: white;
+    text-decoration: none;
+    font-weight: 600;
+}
+
+/* Hero Section */
+.hero {
+    background: url('hero.jpg') no-repeat center center/cover;
+    color: white;
+    padding: 100px 20px;
+    text-align: center;
+}
+
+.hero h2 {
+    font-size: 2.5em;
+}
+
+.searchbox {
+    position: relative;
+    max-width: 350px;
+    margin: 20px auto;
+}
+
+.searchbox input {
+    width: 100%;
+    padding: 10px;
+    font-size: 16px;
+    border: 1px solid #ccc;
+    border-radius: 20px;
+    padding-right: 40px;
+}
+
+.searchbox button {
+    position: absolute;
+    right: 10px;
+    top: 50%;
+    transform: translateY(-50%);
+    background: none;
+    border: none;
+    cursor: pointer;
+    font-size: 18px;
+    color: #333;
+}
+
+/* Features Section */
+.features {
+    padding: 50px 0;
+}
+
+.feature-cards {
+    display: flex;
+    justify-content: center;
+    gap: 20px;
+    flex-wrap: wrap;
+}
+
+.card {
+    background: white;
+    padding: 20px;
+    border-radius: 10px;
+    box-shadow: 0 4px 8px rgba(0, 0, 0, 0.1);
+    text-align: center;
+    width: 300px;
+}
+
+/* Destinations Section */
+.destinations {
+    background: #f4f4f4;
+    padding: 50px 0;
+}
+
+.destination-list {
+    display: flex;
+    justify-content: center;
+    gap: 20px;
+    
+}
+
+.destination {
+    background: white;
+    padding: 20px;
+    border-radius: 10px;
+    box-shadow: 0 4px 8px rgba(0, 0, 0, 0.1);
+    text-align: center;
+    width: 300px;
+}
+
+.destination img {
+    width: 100%;
+    border-radius: 10px;
+}
+
+/* Styling for the h2 */
+h2 {
+    
+    font-size: 36px;
+    color: #333;
+    margin-bottom: 30px;
+}
+
+/* Styling for the destination list container */
+.destinations-list {
+    display: flex;
+    justify-content: center;
+    gap: 20px;
+}
+
+/* Styling for each destination box */
+.destinations {
+    width: 250px;
+    border-radius: 10px;
+    overflow: hidden;
+    box-shadow: 0 4px 8px rgba(0, 0, 0, 0.1);
+    text-align: center;
+    background-color: #fff;
+}
+
+/* Styling for destination images */
+.destinations img {
+    width: 100%;
+    height: 200px;
+    object-fit: cover;
+}
+
+/* Styling for destination title (h3) */
+.destinations h3 {
+    font-size: 24px;
+    color: #444;
+    margin-top: 10px;
+}
+
+/* Styling for destination description */
+.destinations p {
+    font-size: 16px;
+    color: #777;
+    padding: 10px;
+    margin: 0;
+}
+
+/* Hover effect for destinations */
+.destinations:hover {
+    transform: scale(1.05);
+    transition: transform 0.3s ease;
+}
+
+/* Optional: Add some padding around the body */
+body {
+    padding: 20px;
+    font-family: Arial, sans-serif;
+}
+
+
+/* Footer */
+.footer {
+    background: #333;
+    color: white;
+    padding: 20px 0;
+    text-align: center;
+    margin-top: 30px;
+}
+
+.footer a {
+    color: #007bff;
+    text-decoration: none;
+    margin: 0 10px;
+}
