@@ -1,0 +1,120 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Login & Sign Up - Travel Planner</title>
+    <link rel="stylesheet" href="styles.css">
+    <link href="https://fonts.googleapis.com/css2?family=Poppins:wght@300;400;600&display=swap" rel="stylesheet">
+    <style>
+        body {
+            font-family: 'Poppins', sans-serif;
+            display: flex;
+            justify-content: center;
+            align-items: center;
+            height: 100vh;
+            background-color: #f4f4f4;
+            margin: 0;
+        }
+        .container {
+            background: white;
+            padding: 30px;
+            border-radius: 10px;
+            box-shadow: 0px 0px 10px rgba(0, 0, 0, 0.1);
+            text-align: center;
+            width: 350px;
+        }
+        h2 {
+            margin-bottom: 20px;
+        }
+        .input-group {
+            margin-bottom: 15px;
+            text-align: left;
+        }
+        .input-group label {
+            display: block;
+            font-weight: 600;
+        }
+        .input-group input {
+            width: 100%;
+            padding: 10px;
+            font-size: 16px;
+            border: 1px solid #ccc;
+            border-radius: 5px;
+        }
+        .btn {
+            width: 100%;
+            padding: 10px;
+            background-color: #333;
+            color: white;
+            border: none;
+            border-radius: 5px;
+            font-size: 16px;
+            cursor: pointer;
+        }
+        .btn:hover {
+            background-color: #575757;
+        }
+        .link {
+            margin-top: 10px;
+            font-size: 14px;
+        }
+        .link a {
+            color: #333;
+            text-decoration: none;
+            font-weight: 600;
+        }
+    </style>
+</head>
+<body>
+    <div class="container" id="login">
+        <h2>Login to Travel Planner</h2>
+        <form action="index.html" method="POST">
+            <div class="input-group">
+                <label for="email">Email</label>
+                <input type="email" id="email" name="email" required>
+            </div>
+            <div class="input-group">
+                <label for="password">Password</label>
+                <input type="password" id="password" name="password" required>
+            </div>
+            <button type="submit" class="btn">Login</button>
+        </form>
+        <p class="link">Don't have an account? <a href="#" onclick="toggleForm()">Sign up</a></p>
+    </div>
+    
+    <div class="container" id="signup" style="display: none;">
+        <h2>Sign Up for Travel Planner</h2>
+        <form action="index.html" method="POST">
+            <div class="input-group">
+                <label for="new-email">Email</label>
+                <input type="email" id="new-email" name="email" required>
+            </div>
+            <div class="input-group">
+                <label for="new-password">Password</label>
+                <input type="password" id="new-password" name="password" required>
+            </div>
+            <div class="input-group">
+                <label for="confirm-password">Confirm Password</label>
+                <input type="password" id="confirm-password" name="confirm-password" required>
+            </div>
+            <button type="submit" class="btn">Sign Up</button>
+        </form>
+        <p class="link">Already have an account? <a href="#" onclick="toggleForm()">Login</a></p>
+    </div>
+    
+    <script>
+        function toggleForm() {
+            var loginForm = document.getElementById("login");
+            var signupForm = document.getElementById("signup");
+            if (loginForm.style.display === "none") {
+                loginForm.style.display = "block";
+                signupForm.style.display = "none";
+            } else {
+                loginForm.style.display = "none";
+                signupForm.style.display = "block";
+            }
+        }
+    </script>
+</body>
+</html>
