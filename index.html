@@ -9,106 +9,11 @@
     <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
     <link href="https://fonts.googleapis.com/css2?family=Poppins:wght@300;400;600&display=swap" rel="stylesheet">
     <script src="https://kit.fontawesome.com/dfd287a03e.js" crossorigin="anonymous"></script>
-    <style>
-        /* Sidebar Styles */
-        .sidenav {
-            height: 100%;
-            width: 0;
-            position: fixed;
-            top: 0;
-            left: 0;
-            background-color: #333;
-            overflow-x: hidden;
-            transition: 0.3s;
-            padding-top: 60px;
-        }
-
-        .sidenav a {
-            padding: 10px 20px;
-            text-decoration: none;
-            font-size: 18px;
-            color: white;
-            display: block;
-            transition: 0.2s;
-        }
-
-        .sidenav a:hover {
-            background-color: #575757;
-        }
-
-        /* Close Button */
-        .sidenav .closebtn {
-            position: absolute;
-            top: 10px;
-            right: 25px;
-            font-size: 30px;
-            color: white;
-            cursor: pointer;
-        }
-
-        /* Main Content */
-        .main {
-            margin-left: 0;
-            transition: margin-left 0.3s;
-            padding: 20px;
-        }
-
-        /* Open Sidebar Button */
-        .openbtn {
-            font-size: 20px;
-            cursor: pointer;
-            background-color: transparent;
-            color: white;
-            padding: 10px 15px;
-            border: none;
-            margin: 10px;
-        }
-
-        /* Adjust search bar */
-        .searchbox {
-            position: relative;
-            max-width: 350px;
-            margin: auto;
-        }
-
-        .searchbox input {
-            width: 100%;
-            padding: 10px;
-            font-size: 16px;
-            border: 1px solid #ccc;
-            border-radius: 20px;
-            padding-right: 40px;
-        }
-
-        .searchbox button {
-            position: absolute;
-            right: 10px;
-            top: 50%;
-            transform: translateY(-50%);
-            background: none;
-            border: none;
-            cursor: pointer;
-            font-size: 18px;
-            color: #333;
-        }
-
-        /* Responsive Styles */
-        @media screen and (max-width: 600px) {
-            .searchbox {
-                max-width: 100%;
-            }
-        }
-
-    </style>
 </head>
 <body>
-
     <!-- Header Section -->
     <header class="header">
-        <!-- Button to Open Sidebar -->
         <button class="openbtn" onclick="openNav()">☰</button>
-
-        <!-- Side navigation -->
         <div id="mySidenav" class="sidenav">
             <span class="closebtn" onclick="closeNav()">×</span>
             <a href="about.html">About</a>
@@ -116,12 +21,8 @@
             <a href="#features">Features</a>
             <a href="#contact">Contact</a>
         </div>
-
         <div class="container">
-            <div class="logo">
-                <h1><center>Online Travel Planning & Booking Platform</center></h1>
-            </div>
-            <center>
+            <h1 class="logo">Online Travel Planning & Booking Platform</h1>
             <nav class="navigation">
                 <ul>
                     <li><a href="#">Home</a></li>
@@ -130,7 +31,6 @@
                     <li><a href="#contact">Contact</a></li>
                 </ul>
             </nav>
-            </center>
         </div>
     </header>
 
@@ -139,98 +39,22 @@
         <div class="container">
             <h2>Plan Your Adventure</h2>
             <p>Discover amazing destinations, create custom itineraries, and make your dream trip a reality.</p>
-            
-            <!-- Search Box with Icon -->
             <div class="searchbox">
-                <input type="text" id="input-box" placeholder="Search anything" aria-autocomplete="off" onkeyup="showSuggestions()" onkeypress="handleEnter(event)">
+                <input type="text" id="input-box" placeholder="Search anything" onkeyup="showSuggestions()" onkeypress="handleEnter(event)">
                 <button onclick="redirectToSearch()"><i class="fa-solid fa-magnifying-glass"></i></button>
             </div>
             <div id="suggestions" class="suggestion-box"></div>
-            
-            <script>
-                const places = ["India", "London", "New York", "Paris", "Tokyo"]; // Define place-related suggestions
-                const suggestions = [
-                    "Backpacking", "Beach Destinations", "Budget Travel", "Cultural Tours", 
-                    "Cruise Trips", "Food Adventures", "India", "London", "Luxury Travel", 
-                    "Mountain Hiking", "New York", "Paris", "Tokyo", "Weekend Getaways"
-                ];
-                
-                function showSuggestions() {
-                    let input = document.getElementById("input-box").value.toLowerCase();
-                    let suggestionBox = document.getElementById("suggestions");
-                    suggestionBox.innerHTML = "";
-            
-                    if (input === "") {
-                        suggestionBox.style.display = "none";
-                        return;
-                    }
-            
-                    let filteredSuggestions = suggestions
-                        .filter(item => item.toLowerCase().includes(input))
-                        .sort(); 
-            
-                    if (filteredSuggestions.length > 0) {
-                        suggestionBox.style.display = "flex";
-                        filteredSuggestions.forEach(item => {
-                            let div = document.createElement("div");
-                            div.textContent = item;
-                            div.classList.add("suggestion-item");
-                            div.onclick = function () {
-                                document.getElementById("input-box").value = item;
-                                suggestionBox.style.display = "none";
-                                redirectToPage(item);
-                            };
-                            suggestionBox.appendChild(div);
-                        });
-                    } else {
-                        suggestionBox.style.display = "none";
-                    }
-                }
-            
-                function redirectToPage(query) {
-                    query = query.trim();
-                    if (query !== "") {
-                        if (places.includes(query)) {
-                            window.location.href = `paris.html?name=${encodeURIComponent(query)}`;
-                        } else {
-                            window.location.href = `search.html?q=${encodeURIComponent(query)}`;
-                        }
-                    }
-                    if (query !== "") {
-                        if (places.includes(query)) {
-                            window.location.href = `tokyo.html?name=${encodeURIComponent(query)}`;
-                        } else {
-                            window.location.href = `search.html?q=${encodeURIComponent(query)}`;
-                        }
-                    }
-                }
-            
-                function handleEnter(event) {
-                    if (event.key === "Enter") {
-                        redirectToPage(document.getElementById("input-box").value);
-                    }
-                }
-            </script>
-            
-            
+        </div>
+    </section>
 
     <!-- Features Section -->
     <section id="features" class="features">
         <div class="container">
             <h3>Why Choose Us?</h3>
             <div class="feature-cards">
-                <div class="card">
-                    <h4>Custom Itineraries</h4>
-                    <p>Create detailed plans tailored to your preferences.</p>
-                </div>
-                <div class="card">
-                    <h4>Top Destinations</h4>
-                    <p>Explore curated lists of popular and hidden gems.</p>
-                </div>
-                <div class="card"> 
-                    <h4>Seamless Booking</h4>
-                    <p>Book flights, hotels, and activities all in one place.</p>
-                </div>
+                <div class="card"><h4>Custom Itineraries</h4><p>Detailed plans tailored to your preferences.</p></div>
+                <div class="card"><h4>Top Destinations</h4><p>Explore curated lists of popular and hidden gems.</p></div>
+                <div class="card"><h4>Seamless Booking</h4><p>Book flights, hotels, and activities all in one place.</p></div>
             </div>
         </div>
     </section>
@@ -238,23 +62,11 @@
     <!-- Destinations Section -->
     <section id="destinations" class="destinations">
         <div class="container">
-            <h3><b>Popular Destinations</b></h3>
+            <h3>Popular Destinations</h3>
             <div class="destination-list">
-                <div class="destination">
-                    <img src="paris.jpg" alt="Paris">
-                    <h4>Paris</h4>
-                    <p>Paris is one of the most iconic travel destinations in the world.</p>
-                </div>
-                <div class="destination">
-                    <img src="india.jpg" alt="India">
-                    <h4>India</h4>
-                    <p>India is a diverse and vibrant country in South Asia.</p>
-                </div>
-                <div class="destination">
-                    <img src="newyork.jpg" alt="New York">
-                    <h4>New York</h4>
-                    <p>One of the most iconic cities in the world.</p>
-                </div>
+                <div class="destination"><img src="paris.jpg" alt="Paris"><h4>Paris</h4><p>One of the most iconic travel destinations.</p></div>
+                <div class="destination"><img src="india.jpg" alt="India"><h4>India</h4><p>A diverse and vibrant country in South Asia.</p></div>
+                <div class="destination"><img src="newyork.jpg" alt="New York"><h4>New York</h4><p>An iconic city with endless attractions.</p></div>
             </div>
         </div>
     </section>
@@ -263,26 +75,61 @@
     <footer class="footer">
         <div class="container">
             <p>&copy; 2025 Travel Planner. All Rights Reserved.</p>
-            <p>Follow us on:
-                <a href="https://www.facebook.com/">Facebook</a> |
-                <a href="https://www.instagram.com/">Instagram</a> |
-                <a href="https://x.com/i/flow/">Twitter</a>
-            </p>
+            <p>Follow us on: <a href="https://www.facebook.com/">Facebook</a> | <a href="https://www.instagram.com/">Instagram</a> | <a href="https://x.com/i/flow/">Twitter</a></p>
         </div>
     </footer>
 
     <!-- JavaScript -->
     <script>
+        const places = ["India", "London", "New York", "Paris", "Tokyo"];
+        function showSuggestions() {
+            let input = document.getElementById("input-box").value.toLowerCase();
+            let suggestionBox = document.getElementById("suggestions");
+            suggestionBox.innerHTML = "";
+            if (input === "") {
+                suggestionBox.style.display = "none";
+                return;
+            }
+            let filteredSuggestions = places.filter(item => item.toLowerCase().includes(input));
+            if (filteredSuggestions.length > 0) {
+                suggestionBox.style.display = "block";
+                filteredSuggestions.forEach(item => {
+                    let div = document.createElement("div");
+                    div.textContent = item;
+                    div.classList.add("suggestion-item");
+                    div.onclick = function () {
+                        document.getElementById("input-box").value = item;
+                        suggestionBox.style.display = "none";
+                        redirectToPage(item);
+                    };
+                    suggestionBox.appendChild(div);
+                });
+            } else {
+                suggestionBox.style.display = "none";
+            }
+        }
+
+        function redirectToPage(query) {
+            if (places.includes(query)) {
+                window.location.href = `${query.toLowerCase()}.html?name=${encodeURIComponent(query)}`;
+            } else {
+                window.location.href = `search.html?q=${encodeURIComponent(query)}`;
+            }
+        }
+
+        function handleEnter(event) {
+            if (event.key === "Enter") {
+                redirectToPage(document.getElementById("input-box").value);
+            }
+        }
+
         function openNav() {
             document.getElementById("mySidenav").style.width = "250px";
-            document.querySelector(".main").style.marginLeft = "250px";
         }
 
         function closeNav() {
             document.getElementById("mySidenav").style.width = "0";
-            document.querySelector(".main").style.marginLeft = "0";
         }
     </script>
-
 </body>
 </html>
