@@ -19,7 +19,7 @@
             <a href="about.html">About</a>
             <a href="#">Home</a>
             <a href="#features">Features</a>
-            <a href="#contact">Contact</a>
+            <a href="contact.html">Contact</a>
         </div>
         <div class="container">
             <h1 class="logo">Online Travel Planning & Booking Platform</h1>
@@ -81,7 +81,7 @@
 
     <!-- JavaScript -->
     <script>
-        const places = ["India", "London", "New York", "Paris", "Tokyo"];
+        const places = ["India", "London", "New York", "Paris", "Tokyo", "TajMahal", "Pattaya", "Thailand"];
         function showSuggestions() {
             let input = document.getElementById("input-box").value.toLowerCase();
             let suggestionBox = document.getElementById("suggestions");
@@ -111,7 +111,8 @@
 
         function redirectToPage(query) {
             if (places.includes(query)) {
-                window.location.href = `${query.toLowerCase()}.html?name=${encodeURIComponent(query)}`;
+                window.location.href = `${query.replace(/\s+/g, '').toLowerCase()}.html?name=${encodeURIComponent(query)}`;
+
             } else {
                 window.location.href = `search.html?q=${encodeURIComponent(query)}`;
             }
