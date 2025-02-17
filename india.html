@@ -1,0 +1,78 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Explore India - Travel Planner</title>
+    <link rel="stylesheet" href="india.css">
+    <link href="https://fonts.googleapis.com/css2?family=Poppins:wght@300;400;600&display=swap" rel="stylesheet">
+</head>
+<body>
+
+    <!-- Hero Section -->
+    <div class="hero">
+        <h1>Discover India</h1>
+        <p>Experience the rich heritage, diverse culture, and breathtaking landscapes</p>
+    </div>
+
+    <!-- Destinations Section -->
+    <div class="container">
+        <h2>Top Destinations in India</h2>
+        <div class="destinations-list">
+            <div class="destinations" onclick="navigateTo('tajmahal.html')">
+                <img src="tajmahal.jpg" alt="Taj Mahal">
+                <h3>Taj Mahal</h3>
+            </div>
+            <div class="destinations" onclick="navigateTo('jaipur.html')">
+                <img src="jaipur.jpg" alt="Jaipur">
+                <h3>Jaipur</h3>
+            </div>
+            <div class="destinations" onclick="navigateTo('kerala.html')">
+                <img src="kerala.jpg" alt="Kerala">
+                <h3>Kerala</h3>
+            </div>
+            <div class="destinations" onclick="navigateTo('varanasi.html')">
+                <img src="varanasi.jpg" alt="Varanasi">
+                <h3>Varanasi</h3>
+            </div>
+            <div class="destinations" onclick="navigateTo('hyderabad.html')">
+                <img src="hyderabad.jpg" alt="Hyderabad">
+                <h3>Hyderabad</h3>
+            </div>
+            <div class="destinations" onclick="navigateTo('goa.html')">
+                <img src="goa.jpg" alt="Goa">
+                <h3>Goa</h3>
+            </div>
+            <div class="destinations" onclick="navigateTo('jammu.html')">
+                <img src="jammu.jpg" alt="Jammu & Kashmir">
+                <h3>Jammu & Kashmir</h3>
+            </div>
+            <div class="destinations" onclick="navigateTo('Agra.html')">
+                <img src="Agra.jpg" alt="Agra Fort">
+                <h3>Agra Fort</h3>
+            </div>
+            <div class="destinations" onclick="navigateTo('Mumbai.html')">
+                <img src="Mumbai.jpg" alt="Mumbai">
+                <h3>Mumbai</h3>
+            </div>
+            <div class="destinations" onclick="navigateTo('Hampi.html')">
+                <img src="Hampi.jpg" alt="Hampi">
+                <h3>Hampi</h3>
+            </div>
+        </div>
+    </div>
+
+    <!-- Footer -->
+    <footer>
+        <p>&copy; 2025 Travel Planner. All Rights Reserved.</p>
+    </footer>
+
+    <!-- JavaScript -->
+    <script>
+        function navigateTo(url) {
+            window.location.href = url;
+        }
+    </script>
+
+</body>
+</html>

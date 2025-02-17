@@ -1,0 +1,58 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Explore India - Travel Planner</title>
+    <link rel="stylesheet" href="newyork.css">
+    <link href="https://fonts.googleapis.com/css2?family=Poppins:wght@300;400;600&display=swap" rel="stylesheet">
+</head>
+<body>
+
+    <!-- Hero Section -->
+    <div class="hero">
+        <h1>Discover newyork</h1>
+        <p>Experience the rich heritage, diverse culture, and breathtaking landscapes</p>
+    </div>
+
+    <!-- Destinations Section -->
+    <div class="container">
+        <h2>Top Destinations in newyork City</h2>
+        <div class="destinations-list">
+            <div class="destinations" onclick="navigateTo('statue.html')">
+                <img src="statue.jpg" alt="statue">
+                <h3>Statue of Liberty & Ellis Island</h3>
+            </div>
+            <div class="destinations" onclick="navigateTo('Times.html')">
+                <img src="Times.jpg" alt="Times">
+                <h3>Times Square</h3>
+            </div>
+            <div class="destinations" onclick="navigateTo('Rockefeller.html')">
+                <img src="Rockefeller.jpg" alt="Rockefeller">
+                <h3>Rockefeller Center & Top of the Rock</h3>
+            </div>
+            <div class="destinations" onclick="navigateTo('Observatory.html')">
+                <img src="Observatory.jpg" alt="Observatory">
+                <h3>One World Observatory</h3>
+            </div>
+            <div class="destinations" onclick="navigateTo('Metropolitan.html')">
+                <img src="Metropolitan.jpg" alt="Metropolitan">
+                <h3>The Metropolitan Museum of Art (The Met)</h3>
+            </div>
+        </div>
+    </div>
+
+    <!-- Footer -->
+    <footer>
+        <p>&copy; 2025 Travel Planner. All Rights Reserved.</p>
+    </footer>
+
+    <!-- JavaScript -->
+    <script>
+        function navigateTo(url) {
+            window.location.href = url;
+        }
+    </script>
+
+</body>
+</html>
