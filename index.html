@@ -81,7 +81,7 @@
 
     <!-- JavaScript -->
     <script>
-        const places = ["India", "London", "New York", "Paris", "Tokyo", "TajMahal", "Pattaya", "Thailand"];
+        const places = ["India", "London", "New York", "Paris", "Tokyo", "TajMahal", "Pattaya", "Thailand", "statue of liberty & ellis island"];
         function showSuggestions() {
             let input = document.getElementById("input-box").value.toLowerCase();
             let suggestionBox = document.getElementById("suggestions");
@@ -110,13 +110,26 @@
         }
 
         function redirectToPage(query) {
-            if (places.includes(query)) {
-                window.location.href = `${query.replace(/\s+/g, '').toLowerCase()}.html?name=${encodeURIComponent(query)}`;
+    const formattedQuery = query.toLowerCase().replace(/\s+/g, '');
+    let pageMap = {
+        "statueofliberty&ellisisland": "statue.html",
+        "india": "india.html",
+        "london": "london.html",
+        "newyork": "newyork.html",
+        "paris": "paris.html",
+        "tokyo": "tokyo.html",
+        "tajmahal": "tajmahal.html",
+        "pattaya": "pattaya.html",
+        "thailand": "thailand.html"
+    };
 
-            } else {
-                window.location.href = `search.html?q=${encodeURIComponent(query)}`;
-            }
-        }
+    if (pageMap[formattedQuery]) {
+        window.location.href = `${pageMap[formattedQuery]}?name=${encodeURIComponent(query)}`;
+    } else {
+        window.location.href = `search.html?q=${encodeURIComponent(query)}`;
+    }
+}
+
 
         function handleEnter(event) {
             if (event.key === "Enter") {
