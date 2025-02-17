@@ -1,0 +1,72 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Book Your Trip - Paris</title>
+    <link rel="stylesheet" href="book.css">
+    <link href="https://fonts.googleapis.com/css2?family=Poppins:wght@300;400;600&display=swap" rel="stylesheet">
+</head>
+<body>
+
+    <!-- Header Section -->
+    <header>
+        <h1>Book Your Dream Trip to Pattaya</h1>
+        <p>Secure your spot for an unforgettable experience!</p>
+    </header>
+
+    <!-- Booking Form Section -->
+    <div class="container">
+        <form id="booking-form">
+            <h2>Fill in Your Details</h2>
+            
+            <label for="name">Full Name</label>
+            <input type="text" id="name" placeholder="Enter your full name" required>
+
+            <label for="email">Email</label>
+            <input type="email" id="email" placeholder="Enter your email" required>
+
+            <label for="date">Travel Date</label>
+            <input type="date" id="date" required>
+
+            <label for="guests">Number of Guests</label>
+            <input type="number" id="guests" min="1" max="10" placeholder="Enter number of guests" required>
+
+            <label for="package">Choose a Package</label>
+            <select id="package">
+                <option value="standard">Standard Package - $500</option>
+                <option value="luxury">Luxury Package - $1200</option>
+                <option value="honeymoon">Honeymoon Package - $1500</option>
+            </select>
+
+            <button type="submit" class="booking-button">Confirm Booking</button>
+        </form>
+    </div>
+
+    <!-- Confirmation Message -->
+    <div id="confirmation" class="hidden">
+        <h2>Thank you for booking!</h2>
+        <p>Your trip details have been received. We'll contact you soon.</p>
+        <button onclick="goBack()" class="booking-button">Back to Home</button>
+    </div>
+
+    <!-- Footer -->
+    <footer>
+        <p>&copy; 2025 Travel Planner. All Rights Reserved.</p>
+    </footer>
+
+    <!-- JavaScript -->
+    <script>
+        document.getElementById("booking-form").addEventListener("submit", function(event) {
+            event.preventDefault();
+            document.getElementById("booking-form").style.display = "none";
+            document.getElementById("confirmation").classList.remove("hidden");
+        });
+
+        function goBack() {
+            window.location.href = "index.html";
+        }
+    </script>
+
+</body>
+</html>
