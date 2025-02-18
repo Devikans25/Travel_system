@@ -73,6 +73,7 @@
 </head>
 <body>
 
+    <!-- Login Form -->
     <div class="container" id="login">
         <h2>Login to Travel Planner</h2>
         <form onsubmit="return authenticateUser()">
@@ -90,6 +91,7 @@
         <p class="link">Don't have an account? <a href="#" onclick="toggleForm()">Sign up</a></p>
     </div>
     
+    <!-- Signup Form -->
     <div class="container" id="signup" style="display: none;">
         <h2>Sign Up for Travel Planner</h2>
         <form onsubmit="return registerUser()">
@@ -112,58 +114,60 @@
     </div>
     
     <script>
-        // Predefined user credentials (For demo purposes)
-        let users = {
-            "admin": "password123"
-        };
-
-        function authenticateUser() {
-            let username = document.getElementById("email").value;
-            let password = document.getElementById("password").value;
-            let errorMsg = document.getElementById("login-error");
-
-            if (users[username] && users[username] === password) {
-                alert("Login successful!");
-                window.location.href = "index.html"; // Redirect after login
-                return false; 
-            } else {
-                errorMsg.textContent = "Invalid username or password.";
-                return false;
-            }
-        }
-
-        function registerUser() {
-            let newUsername = document.getElementById("new-username").value;
-            let newPassword = document.getElementById("new-password").value;
-            let confirmPassword = document.getElementById("confirm-password").value;
-            let errorMsg = document.getElementById("signup-error");
-
-            if (newPassword !== confirmPassword) {
-                errorMsg.textContent = "Passwords do not match.";
-                return false;
-            }
-
-            if (users[newUsername]) {
-                errorMsg.textContent = "Username already exists.";
-                return false;
-            }
-
-            users[newUsername] = newPassword;
-            alert("Account created successfully! Please log in.");
-            toggleForm();
-            return false;
-        }
-
+        // Toggle between Login and Signup forms
         function toggleForm() {
-            let loginForm = document.getElementById("login");
-            let signupForm = document.getElementById("signup");
-
+            var loginForm = document.getElementById("login");
+            var signupForm = document.getElementById("signup");
             if (loginForm.style.display === "none") {
                 loginForm.style.display = "block";
                 signupForm.style.display = "none";
             } else {
                 loginForm.style.display = "none";
                 signupForm.style.display = "block";
+            }
+        }
+
+        // Function to register a new user
+        function registerUser() {
+            let username = document.getElementById("new-username").value;
+            let password = document.getElementById("new-password").value;
+            let confirmPassword = document.getElementById("confirm-password").value;
+            let signupError = document.getElementById("signup-error");
+
+            if (password !== confirmPassword) {
+                signupError.textContent = "Passwords do not match!";
+                return false;
+            }
+
+            // Check if user already exists
+            if (localStorage.getItem(username)) {
+                signupError.textContent = "Username already exists!";
+                return false;
+            }
+
+            // Store user details in localStorage
+            localStorage.setItem(username, password);
+            alert("Signup successful! Please log in.");
+            toggleForm(); // Switch to login form
+            return false;
+        }
+
+        // Function to authenticate user login
+        function authenticateUser() {
+            let username = document.getElementById("email").value;
+            let password = document.getElementById("password").value;
+            let loginError = document.getElementById("login-error");
+
+            // Retrieve user details from localStorage
+            let storedPassword = localStorage.getItem(username);
+
+            if (storedPassword && storedPassword === password) {
+                localStorage.setItem("loggedInUser", username);
+                window.location.href = "index.html"; // Redirect after login
+                return false;
+            } else {
+                loginError.textContent = "Invalid username or password.";
+                return false;
             }
         }
     </script>
