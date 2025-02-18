@@ -12,6 +12,7 @@
     <script src="https://kit.fontawesome.com/dfd287a03e.js" crossorigin="anonymous"></script>
 </head>
 <body>
+
     <!-- Header Section -->
     <header class="header">
         <button class="openbtn" onclick="openNav()">☰</button>
@@ -42,7 +43,9 @@
             <p>Discover amazing destinations, create custom itineraries, and make your dream trip a reality.</p>
             <div class="searchbox">
                 <input type="text" id="input-box" placeholder="Search anything" onkeyup="showSuggestions()" onkeypress="handleEnter(event)">
-                <button onclick="redirectToSearch()"><i class="fa-solid fa-magnifying-glass"></i></button>
+                <button onclick="redirectToPage(document.getElementById('input-box').value)">
+                    <i class="fa-solid fa-magnifying-glass"></i>
+                </button>
             </div>
             <div id="suggestions" class="suggestion-box"></div>
         </div>
@@ -72,6 +75,9 @@
         </div>
     </section>
 
+    <a href="login.html" class="logout-btn">Logout</a>
+    
+
     <!-- Footer -->
     <footer class="footer">
         <div class="container">
@@ -82,16 +88,20 @@
 
     <!-- JavaScript -->
     <script>
-        const places = ["India", "London", "New York", "Paris", "Tokyo", "TajMahal", "Pattaya", "Thailand", "statue of liberty & ellis island"];
+        const places = ["India", "London", "New York", "Paris", "Tokyo", "TajMahal", "Pattaya", "Thailand", "statue of liberty & ellis island", "Kerala", "Bangkok"];
+
         function showSuggestions() {
             let input = document.getElementById("input-box").value.toLowerCase();
             let suggestionBox = document.getElementById("suggestions");
             suggestionBox.innerHTML = "";
+            
             if (input === "") {
                 suggestionBox.style.display = "none";
                 return;
             }
+
             let filteredSuggestions = places.filter(item => item.toLowerCase().includes(input));
+
             if (filteredSuggestions.length > 0) {
                 suggestionBox.style.display = "block";
                 filteredSuggestions.forEach(item => {
@@ -111,26 +121,27 @@
         }
 
         function redirectToPage(query) {
-    const formattedQuery = query.toLowerCase().replace(/\s+/g, '');
-    let pageMap = {
-        "statueofliberty&ellisisland": "statue.html",
-        "india": "india.html",
-        "london": "london.html",
-        "newyork": "newyork.html",
-        "paris": "paris.html",
-        "tokyo": "tokyo.html",
-        "tajmahal": "tajmahal.html",
-        "pattaya": "pattaya.html",
-        "thailand": "thailand.html"
-    };
+            const formattedQuery = query.toLowerCase().replace(/\s+/g, '');
+            let pageMap = {
+                "statueofliberty&ellisisland": "statue.html",
+                "india": "india.html",
+                "london": "london.html",
+                "newyork": "newyork.html",
+                "paris": "paris.html",
+                "tokyo": "tokyo.html",
+                "tajmahal": "tajmahal.html",
+                "pattaya": "pattaya.html",
+                "thailand": "thailand.html",
+                "kerala": "kerala.html",
+                "bangkok": "bangkok.html"
+            };
 
-    if (pageMap[formattedQuery]) {
-        window.location.href = `${pageMap[formattedQuery]}?name=${encodeURIComponent(query)}`;
-    } else {
-        window.location.href = `search.html?q=${encodeURIComponent(query)}`;
-    }
-}
-
+            if (pageMap[formattedQuery]) {
+                window.location.href = `${pageMap[formattedQuery]}?name=${encodeURIComponent(query)}`;
+            } else {
+                window.location.href = `search.html?q=${encodeURIComponent(query)}`;
+            }
+        }
 
         function handleEnter(event) {
             if (event.key === "Enter") {
@@ -146,5 +157,6 @@
             document.getElementById("mySidenav").style.width = "0";
         }
     </script>
+
 </body>
 </html>
