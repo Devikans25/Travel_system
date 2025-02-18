@@ -64,20 +64,27 @@
             text-decoration: none;
             font-weight: 600;
         }
+        .error {
+            color: red;
+            font-size: 14px;
+            margin-top: 10px;
+        }
     </style>
 </head>
 <body>
+
     <div class="container" id="login">
         <h2>Login to Travel Planner</h2>
-        <form action="index.html" method="POST">
+        <form onsubmit="return authenticateUser()">
             <div class="input-group">
-                <label for="email">Email</label>
-                <input type="email" id="email" name="email" required>
+                <label for="email">Username</label>
+                <input type="text" id="email" name="email" required>
             </div>
             <div class="input-group">
                 <label for="password">Password</label>
                 <input type="password" id="password" name="password" required>
             </div>
+            <p class="error" id="login-error"></p>
             <button type="submit" class="btn">Login</button>
         </form>
         <p class="link">Don't have an account? <a href="#" onclick="toggleForm()">Sign up</a></p>
@@ -85,10 +92,10 @@
     
     <div class="container" id="signup" style="display: none;">
         <h2>Sign Up for Travel Planner</h2>
-        <form action="index.html" method="POST">
+        <form onsubmit="return registerUser()">
             <div class="input-group">
-                <label for="new-email">Email</label>
-                <input type="email" id="new-email" name="email" required>
+                <label for="new-username">Username</label>
+                <input type="text" id="new-username" name="username" required>
             </div>
             <div class="input-group">
                 <label for="new-password">Password</label>
@@ -98,15 +105,59 @@
                 <label for="confirm-password">Confirm Password</label>
                 <input type="password" id="confirm-password" name="confirm-password" required>
             </div>
+            <p class="error" id="signup-error"></p>
             <button type="submit" class="btn">Sign Up</button>
         </form>
         <p class="link">Already have an account? <a href="#" onclick="toggleForm()">Login</a></p>
     </div>
     
     <script>
+        // Predefined user credentials (For demo purposes)
+        let users = {
+            "admin": "password123"
+        };
+
+        function authenticateUser() {
+            let username = document.getElementById("email").value;
+            let password = document.getElementById("password").value;
+            let errorMsg = document.getElementById("login-error");
+
+            if (users[username] && users[username] === password) {
+                alert("Login successful!");
+                window.location.href = "index.html"; // Redirect after login
+                return false; 
+            } else {
+                errorMsg.textContent = "Invalid username or password.";
+                return false;
+            }
+        }
+
+        function registerUser() {
+            let newUsername = document.getElementById("new-username").value;
+            let newPassword = document.getElementById("new-password").value;
+            let confirmPassword = document.getElementById("confirm-password").value;
+            let errorMsg = document.getElementById("signup-error");
+
+            if (newPassword !== confirmPassword) {
+                errorMsg.textContent = "Passwords do not match.";
+                return false;
+            }
+
+            if (users[newUsername]) {
+                errorMsg.textContent = "Username already exists.";
+                return false;
+            }
+
+            users[newUsername] = newPassword;
+            alert("Account created successfully! Please log in.");
+            toggleForm();
+            return false;
+        }
+
         function toggleForm() {
-            var loginForm = document.getElementById("login");
-            var signupForm = document.getElementById("signup");
+            let loginForm = document.getElementById("login");
+            let signupForm = document.getElementById("signup");
+
             if (loginForm.style.display === "none") {
                 loginForm.style.display = "block";
                 signupForm.style.display = "none";
@@ -116,5 +167,6 @@
             }
         }
     </script>
+
 </body>
 </html>
