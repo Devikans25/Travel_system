@@ -12,7 +12,6 @@
 </head>
 <body>
 
-    <!-- Header Section -->
     <header class="header">
         <button class="openbtn" onclick="openNav()">☰</button>
         <div id="mySidenav" class="sidenav">
@@ -30,10 +29,39 @@
                     <li><a href="#features">Features</a></li>
                     <li><a href="destinations.html">Destinations</a></li>
                     <li><a href="contact.html">Contact</a></li>
+                    <li class="dropdown">
+                        <button class="dropbtn">Category</button>
+                        <div class="dropdown-content">
+                            <ul>
+                                <li><a href="couple.html">Couple Trip</a></li>
+                                <li><a href="college.html">College/School</a></li>
+                                <li><a href="family.html">Family Trip</a></li>
+                                <li><a href="god.html">Devotional Trip</a></li>
+                            </ul>
+                        </div>
+                    </li>
                 </ul>
             </nav>
         </div>
     </header>
+    <script>
+        function closeNav() {
+    document.getElementById("mySidenav").style.width = "0";
+    document.body.style.overflow = "auto"; // Enable scrolling again
+}
+document.addEventListener("DOMContentLoaded", function () {
+    const inputBox = document.getElementById("input-box");
+
+    inputBox.addEventListener("keyup", showSuggestions);
+    inputBox.addEventListener("keypress", handleEnter);
+});
+if (typeof Storage !== "undefined") {
+    checkLoginStatus();
+} else {
+    alert("Your browser does not support local storage. Some features may not work.");
+}
+
+    </script>
 
     <!-- Hero Section -->
     <section class="hero">
