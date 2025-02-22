@@ -1,0 +1,110 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Romantic Getaways</title>
+    <link rel="stylesheet" href="couple.css">
+    <link rel="preconnect" href="https://fonts.googleapis.com">
+    <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
+    <link href="https://fonts.googleapis.com/css2?family=Poppins:wght@300;400;600&display=swap" rel="stylesheet">
+</head>
+<body>
+
+    <header class="header">
+        <h1>Romantic Getaways for Couples</h1>
+        <nav>
+            <ul>
+                <li><a href="index.html">Home</a></li>
+                <li><a href="#destinations">Destinations</a></li>
+                <li><a href="#contact">Contact</a></li>
+            </ul>
+        </nav>
+    </header>
+
+    <section id="destinations" class="destinations">
+        <div class="destination-list">
+            <div class="destination" onclick="navigateTo('paris.html')">
+                <img src="paris.jpg" alt="Paris">
+                <div class="destination-content">
+                    <h3>Paris, France</h3>
+                    <p>The city of love, with charming streets, cafes, and the iconic Eiffel Tower.</p>
+                    <button class="book-now" onclick="bookNow('Paris')">Book Now</button>
+                </div>
+            </div>
+            <div class="destination">
+                <img src="santorini.jpg" alt="Santorini">
+                <div class="destination-content">
+                    <h3>Santorini, Greece</h3>
+                    <p>Famous for its breathtaking sunsets, white-washed buildings, and blue domes.</p>
+                    <button class="book-now" onclick="bookNow('Santorini')">Book Now</button>
+                </div>
+            </div>
+            <div class="destination">
+                <img src="maldives.jpg" alt="Maldives">
+                <div class="destination-content">
+                    <h3>Maldives</h3>
+                    <p>A tropical paradise with overwater bungalows and crystal-clear waters.</p>
+                    <button class="book-now" onclick="bookNow('Maldives')">Book Now</button>
+                </div>
+            </div>
+            <div class="destination">
+                <img src="venice.jpg" alt="Venice">
+                <div class="destination-content">
+                    <h3>Venice, Italy</h3>
+                    <p>Gondola rides through canals and dreamy Italian charm.</p>
+                    <button class="book-now" onclick="bookNow('Venice')">Book Now</button>
+                </div>
+            </div>
+            <div class="destination">
+                <img src="udaipur.jpg" alt="Udaipur">
+                <div class="destination-content">
+                    <h3>Udaipur, India</h3>
+                    <p>The "City of Lakes" with royal palaces and boat rides.</p>
+                    <button class="book-now" onclick="bookNow('Udaipur')">Book Now</button>
+                </div>
+            </div>
+            <div class="destination">
+                <img src="goa.jpg" alt="Goa">
+                <div class="destination-content">
+                    <h3>Goa, India</h3>
+                    <p>Serene beaches, vibrant nightlife, and Portuguese heritage.</p>
+                    <button class="book-now" onclick="bookNow('Goa')">Book Now</button>
+                </div>
+            </div>
+            <div class="destination">
+                <img src="munnar.jpg" alt="Munnar">
+                <div class="destination-content">
+                    <h3>Munnar, Kerala</h3>
+                    <p>Green tea gardens and misty hills, perfect for a cozy getaway.</p>
+                    <button class="book-now" onclick="bookNow('Munnar')">Book Now</button>
+                </div>
+            </div>
+            <div class="destination">
+                <img src="agra.jpg" alt="Agra">
+                <div class="destination-content">
+                    <h3>Agra, India</h3>
+                    <p>Home to the Taj Mahal, the ultimate symbol of love.</p>
+                    <button class="book-now" onclick="bookNow('Agra')">Book Now</button>
+                </div>
+            </div>
+        </div>
+    </section>
+
+    <footer class="footer">
+        <p>&copy; 2025 Romantic Getaways. All Rights Reserved.</p>
+    </footer>
+
+    <script>
+        function bookNow(destination) {
+    alert(`Booking for ${destination} is coming soon! Stay tuned.`);
+}
+
+function navigateTo(page) {
+    window.location.href = page;
+}
+
+    </script>
+
+</body>
+</html>
