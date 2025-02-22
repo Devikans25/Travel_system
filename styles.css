@@ -1,309 +1,318 @@
-/* General Styles */
+/* Global Styles */
 body {
     font-family: 'Poppins', sans-serif;
     margin: 0;
     padding: 0;
-    background: url(travel.jpg);
+    background: url('travel.jpg');
     background-size: cover;
+    color: #fff;
 }
 
-/* Container */
-.container {
-    width: 90%;
-    max-width: 1200px;
-    margin: auto;
-    text-align: center;
-}
-
-/* Header */
-.header {
-    color: white;
-    padding: 15px 0;
-    position: relative;
-    text-align: center;
-}
-
-.logo {
-    font-size: 22px;
-    font-weight: 600;
-    margin: 0;
-}
-
-/* Navigation Menu */
-.navigation ul {
-    list-style: none;
-    padding: 0;
-    margin: 0;
-}
-
-.navigation ul li {
-    display: inline;
-    margin: 0 15px;
-}
-
-.navigation ul li a {
-    color: white;
-    text-decoration: none;
-    font-size: 16px;
-    font-weight: 600;
-}
-
-.navigation ul li a:hover {
-    color: #f4a261;
-}
-
-/* Side Navigation */
 .sidenav {
     height: 100%;
     width: 0;
     position: fixed;
+    z-index: 1000;
     top: 0;
     left: 0;
-    background-color: #222;
+    background-color: rgba(0, 0, 0, 0.8);
     overflow-x: hidden;
-    padding-top: 60px;
     transition: 0.3s;
+    padding-top: 60px;
 }
 
 .sidenav a {
-    padding: 12px 20px;
+    padding: 10px 20px;
     text-decoration: none;
-    font-size: 18px;
-    color: #f4f4f4;
+    font-size: 22px;
+    color: white;
     display: block;
     transition: 0.3s;
 }
 
 .sidenav a:hover {
-    color: #f4a261;
+    background: rgba(255, 255, 255, 0.2);
+    border-radius: 5px;
 }
 
-.openbtn {
-    position: absolute;
-    top: 10px;
-    left: 25px;
-    font-size: 30px;
-    cursor: pointer;
-    
-}
-
-.closebtn {
+.sidenav .closebtn {
     position: absolute;
     top: 10px;
     right: 25px;
-    font-size: 30px;
+    font-size: 36px;
     cursor: pointer;
-    
-}
-
-/* Logout Button Styling */
-.logout-btn {
-    position:relative;
-    bottom: 20px;
-    left: 50%;
-    transform: translateX(-50%);
-    background-color: #ff4d4d;
     color: white;
-    text-decoration: none;
-    padding: 12px 24px;
+}
+
+.openbtn {
+    font-size: 20px;
+    cursor: pointer;
+    background-color: rgba(0, 0, 0, 0.7);
+    color: white;
+    padding: 10px 15px;
+    border: none;
+    position: fixed;
+    top: 20px;
+    left: 20px;
     border-radius: 5px;
-    font-size: 16px;
-    font-weight: bold;
-    font-family: 'Poppins', sans-serif;
-    transition: background 0.3s ease;
-    display: inline-block;
+    transition: 0.3s;
 }
 
-.logout-btn:hover {
-    background-color: #cc0000;
+.openbtn:hover {
+    background-color: rgba(255, 255, 255, 0.3);
 }
 
 
+/* Header */
+.header {
+    background: rgba(0, 0, 0, 0.7);
+    padding: 20px;
+    text-align: center;
+    position: fixed;
+    width: 100%;
+    top: 0;
+    left: 0;
+    z-index: 1000;
+}
+
+.logo {
+    font-size: 24px;
+    font-weight: 600;
+}
+
+.navigation ul {
+    list-style: none;
+    padding: 0;
+    margin: 0;
+    display: flex;
+    justify-content: center;
+}
+
+.navigation ul li {
+    margin: 0 15px;
+}
+
+.navigation ul li a {
+    text-decoration: none;
+    color: #fff;
+    font-weight: 400;
+}
 
 /* Hero Section */
 .hero {
-    background: url('travel-banner.jpg') no-repeat center center/cover;
-    color: white;
-    padding: 80px 0;
     text-align: center;
+    padding: 150px 20px;
+    background: rgba(0, 0, 0, 0.6);
 }
 
 .hero h2 {
     font-size: 36px;
-    margin-bottom: 10px;
+    font-weight: 600;
 }
 
 .hero p {
     font-size: 18px;
-    margin-bottom: 20px;
+    margin: 10px 0 20px;
 }
 
-/* Search Box */
-.searchbox {
-    display: flex;
-    justify-content: center;
-    align-items: center;
-    margin-top: 10px;
-}
-
-.searchbox input {
-    padding: 10px;
-    font-size: 16px;
-    border: none;
-    border-radius: 5px;
-    width: 250px;
-}
-
-.searchbox button {
-    padding: 10px;
-    background: #f4a261;
-    border: none;
-    color: white;
-    cursor: pointer;
-    border-radius: 5px;
-    margin-left: 5px;
-}
-
-.searchbox button:hover {
-    background: #e76f51;
-}
-
-/* Suggestion Box */
 .suggestion-box {
     position: absolute;
-    background: white;
-    color: #000;
-    width: 250px;
-    border: 1px solid #ccc;
-    display: none;
-    z-index: 100;
+    top: 50%; /* Positions right below the search box */
     left: 50%;
-    transform: translateX(-50%);
-    top: 50%; /* Positioned right below the input field */
-    box-shadow: 0px 4px 6px rgba(0, 0, 0, 0.1);
+    transform: translateX(-50%); /* Centers horizontally */
+    width: 300px; /* Adjust width as needed */
+    background-color: white;
+    color: black;
+    border: 1px solid #ccc;
     border-radius: 5px;
-    text-align: left;
+    box-shadow: 0 4px 6px rgba(0, 0, 0, 0.1);
+    display: none;
+    z-index: 1000;
+    text-align: center; /* Centers text */
 }
 
 .suggestion-item {
     padding: 10px;
     cursor: pointer;
-    font-size: 16px;
+    border-bottom: 1px solid #ddd;
 }
 
 .suggestion-item:hover {
-    background: #f4a261;
-    color: white;
+    background-color: #f0f0f0;
 }
+.searchbox {
+    position: relative;
+    display: flex;
+    justify-content: center;
+    align-items: center;
+    background: linear-gradient(135deg, #007BFF, #00D4FF);
+    padding: 10px;
+    border-radius: 50px;
+    box-shadow: 0px 4px 10px rgba(0, 0, 0, 0.2);
+    width: 350px;
+    margin: auto;
+}
+
+.searchbox input {
+    width: 100%;
+    padding: 12px;
+    font-size: 16px;
+    border: none;
+    border-radius: 50px;
+    outline: none;
+    flex: 1;
+    text-align: center;
+}
+
+.searchbox button {
+    background: white;
+    color: #007BFF;
+    border: none;
+    padding: 10px 15px;
+    cursor: pointer;
+    border-radius: 50%;
+    margin-left: 10px;
+    display: flex;
+    align-items: center;
+    justify-content: center;
+    transition: background 0.3s ease;
+}
+
+.searchbox button:hover {
+    background: #f0f0f0;
+}
+
 
 
 /* Features Section */
 .features {
-    padding: 60px 0;
-    color: #ccc;
-}
-
-.features h3 {
-    font-size: 28px;
-    margin-bottom: 20px;
+    text-align: center;
+    padding: 50px 20px;
+    background: rgba(255, 255, 255, 0.1);
 }
 
 .feature-cards {
     display: flex;
     justify-content: center;
     gap: 20px;
-    flex-wrap: wrap;
 }
 
 .card {
-    background: #f4f4f4;
-    color: #000;
+    background: rgba(255, 255, 255, 0.2);
     padding: 20px;
     border-radius: 10px;
-    text-align: center;
     width: 250px;
-    transition: 0.3s;
+    text-align: center;
 }
 
-.card:hover {
-    background: #f4a261;
-    color: white;
-}
-
-/* Destination Section */
+/* Destinations Section Styling */
 .destinations {
+    background: url('travel.jpg') no-repeat center center/cover;
     padding: 60px 0;
     color: white;
+    text-align: center;
+}
+
+.destinations .container {
+    max-width: 1200px;
+    margin: auto;
+    padding: 20px;
+    background: rgba(0, 0, 0, 0.6); /* Slight overlay for readability */
+    border-radius: 10px;
+}
+
+.destinations h3 {
+    font-size: 2.5rem;
+    margin-bottom: 20px;
+    font-weight: 600;
 }
 
 .destination-list {
     display: flex;
     justify-content: center;
     gap: 20px;
-    flex-wrap: wrap;
 }
 
 .destination {
+    background: rgba(255, 255, 255, 0.9);
+    border-radius: 10px;
+    padding: 20px;
     width: 300px;
     text-align: center;
+    transition: transform 0.3s;
+}
+
+.destination:hover {
+    transform: scale(1.05);
 }
 
 .destination img {
     width: 100%;
+    height: 200px;
     border-radius: 10px;
+    object-fit: cover;
 }
+
+.destination h4 {
+    font-size: 1.5rem;
+    margin-top: 10px;
+    color: #333;
+}
+
+.destination p {
+    font-size: 1rem;
+    color: #666;
+}
+
 
 /* Footer */
 .footer {
-    background: #333;
-    color: white;
+    background: rgba(0, 0, 0, 0.8);
+    padding: 20px;
     text-align: center;
-    padding: 20px 0;
-    margin-top: 20px;
+    position: absolute;
+    width: 100%;
 }
 
 .footer a {
-    color: #f4a261;
+    color: #ff6f61;
     text-decoration: none;
-    margin: 0 10px;
 }
 
-.footer a:hover {
-    color: #e76f51;
+.dropdown-content {
+    display: none;
+    position: absolute;
+    background-color: gray;
+    min-width: 300px;
+    box-shadow: 0px 8px 16px rgba(0,0,0,0.2);
+    z-index: 1;
 }
 
-/* Responsive Design */
-@media (max-width: 768px) {
-    .feature-cards, .destination-list {
-        flex-direction: column;
-        align-items: center;
-    }
+.dropdown:hover .dropdown-content {
+    display: block;
+}
 
-    .searchbox {
-        flex-direction: column;
-        align-items: center;
-    }
+.logout-btn {
+    display: block; /* Makes it a block element */
+    margin: 50px auto; /* Centers horizontally */
+    padding: 10px 20px;
+    font-size: 18px;
+    font-weight: bold;
+    color: white;
+    background-color: #ff4d4d; /* Red color */
+    border: none;
+    border-radius: 5px;
+    cursor: pointer;
+    text-align: center;
+    text-decoration: none;
+    width: 150px; /* Adjust width */
+    transition: background 0.3s ease;
+}
 
-    .searchbox input {
-        width: 90%;
-        margin-bottom: 10px;
-    }
+.logout-btn:hover {
+    background-color: #cc0000; /* Darker red on hover */
+}
 
-    .hero {
-        padding: 40px 0;
-    }
-
-    .hero h2 {
-        font-size: 28px;
-    }
-
-    .navigation ul {
-        text-align: center;
-        padding: 10px;
-    }
-
-    .navigation ul li {
-        display: block;
-        margin: 10px 0;
-    }
+.logout-btn:active {
+    background-color: #a30000; /* Even darker red when clicked */
 }
