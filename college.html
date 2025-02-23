@@ -1,0 +1,248 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>College/School Trips</title>
+    <link rel="preconnect" href="https://fonts.googleapis.com">
+    <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
+    <link href="https://fonts.googleapis.com/css2?family=Poppins:wght@300;400;600&display=swap" rel="stylesheet">
+    <link rel="stylesheet" href="college.css">
+</head>
+<body>
+    <header>
+        <h1>📍 Study Tripz - Explore & Learn</h1>
+    </header>
+    
+    <div class="container">
+        <section class="intro">
+            <h2>Why Study Trips?</h2>
+            <p>Traveling is an integral part of learning! Our school & college trips provide students with real-world exposure, hands-on experiences, and cultural insights.</p>
+            <img src="https://source.unsplash.com/900x450/?students,travel" alt="Students traveling" class="trip-image">
+        </section>
+
+        <!-- ROW-WISE GRID DESIGN -->
+        <div class="grid">
+            <!-- Adventure Trips -->
+            <div class="trip-card">
+                <h3>⛰️ Adventure Trips</h3>
+
+                <div class="destination">
+                    <img src="https://source.unsplash.com/400x250/?river,rafting" alt="Rishikesh River Rafting">
+                    <h3>Rishikesh – River Rafting</h3>
+                    <p>Experience the thrill of river rafting in the Ganges, surrounded by breathtaking landscapes.</p>
+                    <button class="book-now" onclick="bookNow('Rishikesh')">Book Now</button>
+                </div>
+
+                <div class="destination">
+                    <img src="https://source.unsplash.com/400x250/?rainforest,adventure" alt="Amazon Rainforest">
+                    <h3>Amazon Rainforest – Brazil</h3>
+                    <p>Explore the world’s largest rainforest, full of exotic wildlife and adventure activities.</p>
+                    <button class="book-now" onclick="bookNow('Amazon Rainforest')">Book Now</button>
+                </div>
+
+                <div class="destination">
+                    <img src="https://source.unsplash.com/400x250/?hiking,mountains" alt="Everest Base Camp">
+                    <h3>Everest Base Camp – Nepal</h3>
+                    <p>Embark on a trekking journey to the base of the highest mountain on Earth.</p>
+                    <button class="book-now" onclick="bookNow('Everest Base Camp')">Book Now</button>
+                </div>
+
+                <div class="destination">
+                    <img src="https://source.unsplash.com/400x250/?skydiving,adventure" alt="Dubai Skydiving">
+                    <h3>Skydiving – Dubai</h3>
+                    <p>Feel the adrenaline rush as you skydive over the stunning Palm Jumeirah.</p>
+                    <button class="book-now" onclick="bookNow('Skydiving Dubai')">Book Now</button>
+                </div>
+
+                <div class="destination">
+                    <img src="https://source.unsplash.com/400x250/?desert,safari" alt="Sahara Desert">
+                    <h3>Sahara Desert – Morocco</h3>
+                    <p>Experience camel rides, desert camping, and mesmerizing sand dunes.</p>
+                    <button class="book-now" onclick="bookNow('Sahara Desert')">Book Now</button>
+                </div>
+
+                <div class="destination">
+                    <img src="https://source.unsplash.com/400x250/?scuba,diving" alt="Great Barrier Reef">
+                    <h3>Scuba Diving – Great Barrier Reef</h3>
+                    <p>Dive into the crystal-clear waters and explore the world’s largest coral reef system.</p>
+                    <button class="book-now" onclick="bookNow('Great Barrier Reef')">Book Now</button>
+                </div>
+
+                <div class="destination">
+                    <img src="https://source.unsplash.com/400x250/?paragliding,adventure" alt="Bir Billing Paragliding">
+                    <h3>Paragliding – Bir Billing</h3>
+                    <p>Soar high over the Himalayan valleys with an exhilarating paragliding experience.</p>
+                    <button class="book-now" onclick="bookNow('Bir Billing')">Book Now</button>
+                </div>
+
+                <div class="destination">
+                    <img src="https://source.unsplash.com/400x250/?ice,climbing" alt="Alaska Ice Climbing">
+                    <h3>Ice Climbing – Alaska</h3>
+                    <p>Challenge yourself with an extreme ice climbing adventure in Alaska’s glaciers.</p>
+                    <button class="book-now" onclick="bookNow('Alaska Ice Climbing')">Book Now</button>
+                </div>
+
+                <div class="destination">
+                    <img src="https://source.unsplash.com/400x250/?volcano,hiking" alt="Mount Fuji">
+                    <h3>Volcano Trekking – Mount Fuji</h3>
+                    <p>Hike up Japan’s iconic Mount Fuji and witness a breathtaking sunrise from the summit.</p>
+                    <button class="book-now" onclick="bookNow('Mount Fuji')">Book Now</button>
+                </div>
+
+                <div class="destination">
+                    <img src="https://source.unsplash.com/400x250/?bungee,jumping" alt="Macau Tower Bungee">
+                    <h3>Bungee Jumping – Macau Tower</h3>
+                    <p>Take a leap from one of the world’s highest bungee jumping platforms in Macau.</p>
+                    <button class="book-now" onclick="bookNow('Macau Bungee')">Book Now</button>
+                </div>
+            </div>
+
+
+           <!-- Cultural Tours -->
+            <div class="trip-card">
+                <h3>🎭 Cultural Tours</h3>
+                <p>Experience diverse traditions, historic landmarks, and artistic heritage through these incredible cultural trips.</p>
+
+                <div class="destination">
+                    <img src="jaipur.jpg" alt="Jaipur & Udaipur">
+                    <h3>Jaipur & Udaipur – Rajasthan, India</h3>
+                    <p>Explore the royal palaces, colorful markets, and rich history of Rajasthan’s most famous cities.</p>
+                    <button class="book-now" onclick="bookNow('Jaipur')">Book Now</button>
+                </div>
+
+                <div class="destination">
+                    <img src="rome.jpg" alt="Rome & Vatican City">
+                    <h3>Rome & Vatican City – Italy</h3>
+                    <p>Step into the world of ancient Roman architecture and religious heritage.</p>
+                    <button class="book-now" onclick="bookNow('Rome')">Book Now</button>
+                </div>
+
+                <div class="destination">
+                    <img src="varanasi.jpg" alt="Varanasi">
+                    <h3>Varanasi – India</h3>
+                    <p>Experience spiritual awakening in one of the world’s oldest continuously inhabited cities.</p>
+                    <button class="book-now" onclick="bookNow('Varanasi')">Book Now</button>
+                </div>
+
+                <div class="destination">
+                    <img src="agra.jpg" alt="Taj Mahal">
+                    <h3>Agra – India</h3>
+                    <p>Marvel at the beauty of the Taj Mahal, a UNESCO World Heritage Site and symbol of love.</p>
+                    <button class="book-now" onclick="bookNow('Agra')">Book Now</button>
+                </div>
+
+                <div class="destination">
+                    <img src="hampi.jpg" alt="Hampi">
+                    <h3>Hampi – Karnataka, India</h3>
+                    <p>Explore the magnificent ruins of the Vijayanagar Empire, an architectural wonder.</p>
+                    <button class="book-now" onclick="bookNow('Hampi')">Book Now</button>
+                </div>
+
+                <div class="destination">
+                    <img src="paris.jpg" alt="Paris">
+                    <h3>Paris – France</h3>
+                    <p>Visit the city of art and romance, featuring the Eiffel Tower, Louvre, and grand boulevards.</p>
+                    <button class="book-now" onclick="bookNow('Paris')">Book Now</button>
+                </div>
+
+                <div class="destination">
+                    <img src="kyoto.jpg" alt="Kyoto">
+                    <h3>Kyoto – Japan</h3>
+                    <p>Immerse yourself in Japanese culture with ancient temples, cherry blossoms, and tea ceremonies.</p>
+                    <button class="book-now" onclick="bookNow('Kyoto')">Book Now</button>
+                </div>
+
+                <div class="destination">
+                    <img src="cairo.jpg" alt="Cairo">
+                    <h3>Cairo – Egypt</h3>
+                    <p>Discover the wonders of the ancient pyramids, the Sphinx, and the Nile River.</p>
+                    <button class="book-now" onclick="bookNow('Cairo')">Book Now</button>
+                </div>
+
+                <div class="destination">
+                    <img src="istanbul.jpg" alt="Istanbul">
+                    <h3>Istanbul – Turkey</h3>
+                    <p>Visit the historic crossroads of Europe and Asia with grand mosques and bazaars.</p>
+                    <button class="book-now" onclick="bookNow('Istanbul')">Book Now</button>
+                </div>
+
+                <div class="destination">
+                    <img src="bhutan.jpg" alt="Bhutan">
+                    <h3>Bhutan – The Land of Happiness</h3>
+                    <p>Experience the untouched culture and breathtaking landscapes of the world’s happiest country.</p>
+                    <button class="book-now" onclick="bookNow('Bhutan')">Book Now</button>
+                </div>
+            </div>
+
+            <!-- Leisure Trips -->
+            <div class="trip-card">
+                <h3>🎡 Leisure Trips</h3>
+                <p>Relax at beautiful resorts, theme parks, and exotic beaches around the world.</p>
+
+                <div class="destination">
+                    <img src="https://source.unsplash.com/400x250/?beach,goa" alt="Goa Beach">
+                    <h3>Goa – India</h3>
+                    <p>Enjoy sun-kissed beaches, nightlife, and water sports in India's favorite coastal getaway.</p>
+                    <button class="book-now" onclick="bookNow('Goa')">Book Now</button>
+                </div>
+
+                <div class="destination">
+                    <img src="https://source.unsplash.com/400x250/?resort,maldives" alt="Maldives">
+                    <h3>Maldives</h3>
+                    <p>Stay in luxury overwater villas and experience breathtaking turquoise waters.</p>
+                    <button class="book-now" onclick="bookNow('Maldives')">Book Now</button>
+                </div>
+
+                <div class="destination">
+                    <img src="https://source.unsplash.com/400x250/?disneyland,themepark" alt="Disneyland">
+                    <h3>Disneyland – California, Paris, Hong Kong</h3>
+                    <p>Step into a magical world with thrilling rides, Disney characters, and fun for all ages.</p>
+                    <button class="book-now" onclick="bookNow('Disneyland')">Book Now</button>
+                </div>
+
+                <div class="destination">
+                    <img src="https://source.unsplash.com/400x250/?dubai,desert" alt="Dubai">
+                    <h3>Dubai – UAE</h3>
+                    <p>Explore the luxurious city of Dubai, famous for its desert safaris, skyscrapers, and shopping.</p>
+                    <button class="book-now" onclick="bookNow('Dubai')">Book Now</button>
+                </div>
+
+                <div class="destination">
+                    <img src="https://source.unsplash.com/400x250/?backwaters,kerala" alt="Kerala Backwaters">
+                    <h3>Kerala Backwaters – India</h3>
+                    <p>Relax on a houseboat while cruising through the scenic backwaters of Kerala.</p>
+                    <button class="book-now" onclick="bookNow('Kerala Backwaters')">Book Now</button>
+                </div>
+
+                <div class="destination">
+                    <img src="https://source.unsplash.com/400x250/?island,andaman" alt="Andaman Islands">
+                    <h3>Andaman & Nicobar Islands – India</h3>
+                    <p>Experience pristine beaches, crystal-clear waters, and marine adventures.</p>
+                    <button class="book-now" onclick="bookNow('Andaman')">Book Now</button>
+                </div>
+            </div>
+
+        </div>
+    </div>
+
+    <!-- Footer -->
+    <footer>
+        <p>&copy; 2025 Study Tripz </p>
+        <p>Contact Us: <a href="mailto:info@studytripz.com">info@studytripz.com</a> | 📞 +91 98765 43210</p>
+        <div class="socials">
+            <a href="#" class="social-link">🌍 Website</a>
+            <a href="#" class="social-link">📘 Facebook</a>
+            <a href="#" class="social-link">📷 Instagram</a>
+            <a href="#" class="social-link">🐦 Twitter</a>
+        </div>
+    </footer>
+
+    <script>
+        function bookNow(destination) {
+            alert("Redirecting to booking page for " + destination);
+            window.location.href = "booking.html?destination=" + destination;
+        }
+    </script>
+</body>
+</html>
