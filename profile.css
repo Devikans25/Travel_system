@@ -1,0 +1,110 @@
+/* General Styles */
+body {
+    font-family: 'Poppins', sans-serif;
+    background: url('travel-bg.jpg') center/cover no-repeat;
+    display: flex;
+    justify-content: center;
+    align-items: center;
+    height: 100vh;
+    margin: 0;
+}
+
+/* Profile Container */
+.profile-container {
+    background: white;
+    padding: 30px;
+    border-radius: 10px;
+    box-shadow: 0 4px 10px rgba(0, 0, 0, 0.1);
+    text-align: center;
+    width: 380px;
+    position: relative;
+}
+
+/* Profile Picture */
+.profile-pic {
+    width: 120px;
+    height: 120px;
+    border-radius: 50%;
+    border: 3px solid #007bff;
+    object-fit: cover;
+    cursor: pointer;
+    transition: transform 0.3s ease-in-out;
+}
+
+.profile-pic:hover {
+    transform: scale(1.1);
+}
+
+/* Upload Icon */
+.upload-icon {
+    position: absolute;
+    top: 95px;
+    left: 50%;
+    transform: translateX(-50%);
+    font-size: 20px;
+    background: #007bff;
+    color: white;
+    padding: 5px;
+    border-radius: 50%;
+    cursor: pointer;
+}
+
+#profilePicUpload {
+    display: none;
+}
+
+/* Editable Name */
+h2 {
+    margin: 10px 0;
+    font-size: 22px;
+    color: #333;
+    outline: none;
+}
+
+/* Input Fields */
+.input-group {
+    display: flex;
+    align-items: center;
+    background: #f4f4f4;
+    border-radius: 5px;
+    padding: 10px;
+    margin: 10px 0;
+}
+
+.input-group i {
+    margin-right: 10px;
+    color: #007bff;
+}
+
+.input-group input {
+    border: none;
+    outline: none;
+    background: transparent;
+    font-size: 16px;
+    width: 100%;
+}
+
+/* Buttons */
+.save-btn, .logout-btn {
+    background: #007bff;
+    color: white;
+    border: none;
+    padding: 10px 20px;
+    font-size: 16px;
+    border-radius: 5px;
+    cursor: pointer;
+    margin-top: 15px;
+    transition: background 0.3s ease;
+}
+
+.logout-btn {
+    background: #ff4d4d;
+}
+
+.save-btn:hover {
+    background: #0056b3;
+}
+
+.logout-btn:hover {
+    background: #cc0000;
+}

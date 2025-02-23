@@ -1,0 +1,85 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>User Profile - Travel Booking</title>
+    <link rel="stylesheet" href="profile.css">
+    <script src="https://kit.fontawesome.com/dfd287a03e.js" crossorigin="anonymous"></script>
+</head>
+<body onload="displayUserProfile()">
+
+    <div class="profile-container">
+        <label for="profilePicUpload">
+            <img id="profilePicture" src="default-profile.png" alt="Profile Picture" class="profile-pic">
+            <i class="fa fa-camera upload-icon"></i>
+        </label>
+        <input type="file" id="profilePicUpload" accept="image/*" onchange="uploadProfilePic()">
+
+        <h2 contenteditable="true" id="profileName">Guest</h2>
+
+        <div class="input-group">
+            <i class="fa fa-envelope"></i>
+            <input type="email" id="profileEmail" placeholder="Enter your email">
+        </div>
+
+        <div class="input-group">
+            <i class="fa fa-phone"></i>
+            <input type="tel" id="profilePhone" placeholder="Enter your phone number">
+        </div>
+
+        <button onclick="saveProfile()" class="save-btn">Save Changes</button>
+        <button onclick="logout()" class="logout-btn">Logout</button>
+    </div>
+
+    <script>
+        function displayUserProfile() {
+            let user = JSON.parse(localStorage.getItem("currentUser"));
+
+            if (user) {
+                document.getElementById("profilePicture").src = user.profilePic || "default-profile.png";
+                document.getElementById("profileName").textContent = user.name || "Guest";
+                document.getElementById("profileEmail").value = user.email || "";
+                document.getElementById("profilePhone").value = user.phone || "";
+            } else {
+                window.location.href = "login.html"; 
+            }
+        }
+
+        function uploadProfilePic() {
+            const fileInput = document.getElementById("profilePicUpload");
+            const file = fileInput.files[0];
+
+            if (file) {
+                const reader = new FileReader();
+                reader.onload = function (e) {
+                    document.getElementById("profilePicture").src = e.target.result;
+                    let user = JSON.parse(localStorage.getItem("currentUser")) || {};
+                    user.profilePic = e.target.result;
+                    localStorage.setItem("currentUser", JSON.stringify(user));
+                };
+                reader.readAsDataURL(file);
+            }
+        }
+
+        function saveProfile() {
+            let user = {
+                name: document.getElementById("profileName").textContent.trim(),
+                email: document.getElementById("profileEmail").value.trim(),
+                phone: document.getElementById("profilePhone").value.trim(),
+                profilePic: document.getElementById("profilePicture").src
+            };
+
+            localStorage.setItem("currentUser", JSON.stringify(user));
+            alert("Profile updated successfully!");
+        }
+
+        function logout() {
+            localStorage.removeItem("currentUser");
+            localStorage.removeItem("isLoggedIn");
+            window.location.href = "login.html";
+        }
+    </script>
+
+</body>
+</html>

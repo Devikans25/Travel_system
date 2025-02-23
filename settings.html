@@ -1,0 +1,113 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Settings - Travel Booking</title>
+    <link rel="stylesheet" href="settings.css">
+    <script src="https://kit.fontawesome.com/dfd287a03e.js" crossorigin="anonymous"></script>
+</head>
+<body>
+
+    <div class="settings-container">
+        <h2>⚙️ Account Settings</h2>
+        
+        <!-- Change Password -->
+        <div class="settings-section">
+            <h3>🔑 Change Password</h3>
+            <div class="input-group">
+                <i class="fa fa-lock"></i>
+                <input type="password" id="currentPassword" placeholder="Current Password">
+            </div>
+            <div class="input-group">
+                <i class="fa fa-key"></i>
+                <input type="password" id="newPassword" placeholder="New Password">
+            </div>
+            <div class="input-group">
+                <i class="fa fa-check"></i>
+                <input type="password" id="confirmPassword" placeholder="Confirm New Password">
+            </div>
+        </div>
+
+        <!-- Preferences -->
+        <div class="settings-section">
+            <h3>🌍 Travel Preferences</h3>
+            <label>
+                <input type="checkbox" id="soloTravel"> Solo Travel
+            </label>
+            <label>
+                <input type="checkbox" id="familyTravel"> Family Trips
+            </label>
+            <label>
+                <input type="checkbox" id="adventureTravel"> Adventure & Trekking
+            </label>
+            <label>
+                <input type="checkbox" id="luxuryTravel"> Luxury & Resorts
+            </label>
+        </div>
+
+        <!-- Notifications -->
+        <div class="settings-section">
+            <h3>🔔 Notification Settings</h3>
+            <label>
+                <input type="checkbox" id="emailNotifications"> Email Notifications
+            </label>
+            <label>
+                <input type="checkbox" id="smsNotifications"> SMS Alerts
+            </label>
+            <label>
+                <input type="checkbox" id="promoNotifications"> Promotional Offers
+            </label>
+        </div>
+
+        <button onclick="saveSettings()" class="save-btn">💾 Save Changes</button>
+        <button onclick="resetSettings()" class="reset-btn">🔄 Reset</button>
+    </div>
+
+    <script>
+        function saveSettings() {
+            let settings = {
+                password: document.getElementById("newPassword").value.trim(),
+                preferences: {
+                    solo: document.getElementById("soloTravel").checked,
+                    family: document.getElementById("familyTravel").checked,
+                    adventure: document.getElementById("adventureTravel").checked,
+                    luxury: document.getElementById("luxuryTravel").checked
+                },
+                notifications: {
+                    email: document.getElementById("emailNotifications").checked,
+                    sms: document.getElementById("smsNotifications").checked,
+                    promo: document.getElementById("promoNotifications").checked
+                }
+            };
+            
+            localStorage.setItem("userSettings", JSON.stringify(settings));
+            alert("Settings saved successfully!");
+        }
+
+        function resetSettings() {
+            localStorage.removeItem("userSettings");
+            alert("Settings reset!");
+            window.location.reload();
+        }
+
+        function loadSettings() {
+            let settings = JSON.parse(localStorage.getItem("userSettings"));
+
+            if (settings) {
+                document.getElementById("soloTravel").checked = settings.preferences.solo;
+                document.getElementById("familyTravel").checked = settings.preferences.family;
+                document.getElementById("adventureTravel").checked = settings.preferences.adventure;
+                document.getElementById("luxuryTravel").checked = settings.preferences.luxury;
+
+                document.getElementById("emailNotifications").checked = settings.notifications.email;
+                document.getElementById("smsNotifications").checked = settings.notifications.sms;
+                document.getElementById("promoNotifications").checked = settings.notifications.promo;
+            }
+        }
+
+        window.onload = loadSettings;
+    </script>
+
+</body>
+</html>
