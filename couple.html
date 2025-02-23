@@ -8,11 +8,112 @@
     <link rel="preconnect" href="https://fonts.googleapis.com">
     <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
     <link href="https://fonts.googleapis.com/css2?family=Poppins:wght@300;400;600&display=swap" rel="stylesheet">
+    <style>
+        /* Romantic Theme Styles */
+        body {
+            font-family: 'Poppins', sans-serif;
+            margin: 0;
+            padding: 0;
+            background: linear-gradient(to right, #ff758c, #ff7eb3);
+            color: white;
+            text-align: center;
+        }
+
+        .header {
+            background: rgba(0, 0, 0, 0.5);
+            padding: 20px;
+            text-align: center;
+        }
+
+        .header h1 {
+            font-size: 2.5rem;
+        }
+
+        nav ul {
+            list-style: none;
+            padding: 0;
+        }
+
+        nav ul li {
+            display: inline;
+            margin: 0 15px;
+        }
+
+        nav ul li a {
+            color: white;
+            text-decoration: none;
+            font-weight: bold;
+        }
+
+        /* Dropdown for Destination Selection */
+        .destination-select {
+            margin: 20px 0;
+            font-size: 1.2rem;
+        }
+
+        select {
+            padding: 10px;
+            border-radius: 5px;
+            border: none;
+            font-size: 1rem;
+        }
+
+        .destinations {
+            display: flex;
+            flex-wrap: wrap;
+            justify-content: center;
+            margin-top: 20px;
+        }
+
+        .destination {
+            background: rgba(255, 255, 255, 0.2);
+            border-radius: 10px;
+            padding: 15px;
+            margin: 15px;
+            width: 250px;
+            text-align: center;
+            transition: transform 0.3s ease-in-out;
+        }
+
+        .destination:hover {
+            transform: scale(1.05);
+        }
+
+        .destination img {
+            width: 100%;
+            border-radius: 10px;
+        }
+
+        .book-now {
+            background: white;
+            color: #ff758c;
+            border: none;
+            padding: 10px 15px;
+            font-size: 1rem;
+            cursor: pointer;
+            border-radius: 5px;
+            transition: background 0.3s;
+        }
+
+        .book-now:hover {
+            background: #ffafbd;
+            color: white;
+        }
+
+        .footer {
+            background: rgba(0, 0, 0, 0.6);
+            padding: 10px;
+            position: fixed;
+            width: 100%;
+            bottom: 0;
+            text-align: center;
+        }
+    </style>
 </head>
 <body>
 
     <header class="header">
-        <h1>Romantic Getaways for Couples</h1>
+        <h1>Romantic Getaways for Couples 💕</h1>
         <nav>
             <ul>
                 <li><a href="index.html">Home</a></li>
@@ -22,73 +123,70 @@
         </nav>
     </header>
 
+    <!-- Destination Selection Dropdown -->
+    <div class="destination-select">
+        <label for="tripType">Choose a Trip Type:</label>
+        <select id="tripType" onchange="filterDestinations()">
+            <option value="all">All Destinations</option>
+            <option value="international">International</option>
+            <option value="local">Local (India)</option>
+        </select>
+    </div>
+
+    <!-- Destination Section -->
     <section id="destinations" class="destinations">
-        <div class="destination-list">
-            <div class="destination" onclick="navigateTo('paris.html')">
-                <img src="paris.jpg" alt="Paris">
-                <div class="destination-content">
-                    <h3>Paris, France</h3>
-                    <p>The city of love, with charming streets, cafes, and the iconic Eiffel Tower.</p>
-                    <button class="book-now" onclick="bookNow('Paris')">Book Now</button>
-                </div>
-            </div>
-            <div class="destination">
-                <img src="santorini.jpg" alt="Santorini">
-                <div class="destination-content">
-                    <h3>Santorini, Greece</h3>
-                    <p>Famous for its breathtaking sunsets, white-washed buildings, and blue domes.</p>
-                    <button class="book-now" onclick="bookNow('Santorini')">Book Now</button>
-                </div>
-            </div>
-            <div class="destination">
-                <img src="maldives.jpg" alt="Maldives">
-                <div class="destination-content">
-                    <h3>Maldives</h3>
-                    <p>A tropical paradise with overwater bungalows and crystal-clear waters.</p>
-                    <button class="book-now" onclick="bookNow('Maldives')">Book Now</button>
-                </div>
-            </div>
-            <div class="destination">
-                <img src="venice.jpg" alt="Venice">
-                <div class="destination-content">
-                    <h3>Venice, Italy</h3>
-                    <p>Gondola rides through canals and dreamy Italian charm.</p>
-                    <button class="book-now" onclick="bookNow('Venice')">Book Now</button>
-                </div>
-            </div>
-            <div class="destination">
-                <img src="udaipur.jpg" alt="Udaipur">
-                <div class="destination-content">
-                    <h3>Udaipur, India</h3>
-                    <p>The "City of Lakes" with royal palaces and boat rides.</p>
-                    <button class="book-now" onclick="bookNow('Udaipur')">Book Now</button>
-                </div>
-            </div>
-            <div class="destination">
-                <img src="goa.jpg" alt="Goa">
-                <div class="destination-content">
-                    <h3>Goa, India</h3>
-                    <p>Serene beaches, vibrant nightlife, and Portuguese heritage.</p>
-                    <button class="book-now" onclick="bookNow('Goa')">Book Now</button>
-                </div>
-            </div>
-            <div class="destination">
-                <img src="munnar.jpg" alt="Munnar">
-                <div class="destination-content">
-                    <h3>Munnar, Kerala</h3>
-                    <p>Green tea gardens and misty hills, perfect for a cozy getaway.</p>
-                    <button class="book-now" onclick="bookNow('Munnar')">Book Now</button>
-                </div>
-            </div>
-            <div class="destination">
-                <img src="agra.jpg" alt="Agra">
-                <div class="destination-content">
-                    <h3>Agra, India</h3>
-                    <p>Home to the Taj Mahal, the ultimate symbol of love.</p>
-                    <button class="book-now" onclick="bookNow('Agra')">Book Now</button>
-                </div>
-            </div>
+        <!-- International Destinations -->
+        <div class="destination international">
+            <img src="paris.jpg" alt="Paris">
+            <h3>Paris, France</h3>
+            <p>The city of love, with charming streets, cafes, and the Eiffel Tower.</p>
+            <button class="book-now" onclick="bookNow('Paris')">Book Now</button>
         </div>
+
+        <div class="destination international">
+            <img src="santorini.jpg" alt="Santorini">
+            <h3>Santorini, Greece</h3>
+            <p>Famous for its breathtaking sunsets, white-washed buildings, and blue domes.</p>
+            <button class="book-now" onclick="bookNow('Santorini')">Book Now</button>
+        </div>
+
+        <div class="destination international">
+            <img src="maldives.jpg" alt="Maldives">
+            <h3>Maldives</h3>
+            <p>A tropical paradise with overwater bungalows and crystal-clear waters.</p>
+            <button class="book-now" onclick="bookNow('Maldives')">Book Now</button>
+        </div>
+
+        <div class="destination international">
+            <img src="switzer.jpg" alt="Switzerland">
+            <h3>Switzerland</h3>
+            <p>A dream honeymoon destination with breathtaking landscapes.</p>
+            <button class="book-now" onclick="window.location.href='switzerland.html'">Explore More</button>
+        </div>
+        
+
+        <!-- Local Destinations (India) -->
+        <div class="destination local">
+            <img src="ootty.jpg" alt="Goa">
+            <h3>Ootty</h3>
+            <p>Serene beaches, vibrant nightlife, and Portuguese heritage.</p>
+            <button class="book-now" onclick="bookNow('Ootty')">Book Now</button>
+        </div>
+
+        <div class="destination local">
+            <img src="Kodai.jpg" alt="Munnar">
+            <h3>Kodaikanal</h3>
+            <p>Green tea gardens and misty hills, perfect for a cozy getaway.</p>
+            <button class="book-now" onclick="bookNow('Kodaikanal')">Book Now</button>
+        </div>
+
+        <div class="destination local">
+            <img src="munnar.jpg" alt="Munnar">
+            <h3>Munnar & Alleppey Houseboat Trip</h3>
+            <p>Experience the perfect blend of misty hills and serene backwaters with this 4-day Munnar and Alleppey houseboat trip. 🌿🚤💕</p>
+            <button class="book-now" onclick="window.location.href='alleppey.html'">View Details</button>
+        </div>
+        
     </section>
 
     <footer class="footer">
@@ -97,13 +195,23 @@
 
     <script>
         function bookNow(destination) {
-    alert(`Booking for ${destination} is coming soon! Stay tuned.`);
-}
+            alert(`Booking for ${destination} is coming soon! Stay tuned.`);
+        }
 
-function navigateTo(page) {
-    window.location.href = page;
-}
+        function filterDestinations() {
+            let filter = document.getElementById("tripType").value;
+            let destinations = document.querySelectorAll(".destination");
 
+            destinations.forEach(dest => {
+                if (filter === "all") {
+                    dest.style.display = "block";
+                } else if (dest.classList.contains(filter)) {
+                    dest.style.display = "block";
+                } else {
+                    dest.style.display = "none";
+                }
+            });
+        }
     </script>
 
 </body>
