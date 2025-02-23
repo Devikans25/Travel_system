@@ -10,17 +10,25 @@
     <link href="https://fonts.googleapis.com/css2?family=Poppins:wght@300;400;600&display=swap" rel="stylesheet">
     <script src="https://kit.fontawesome.com/dfd287a03e.js" crossorigin="anonymous"></script>
 </head>
-<body>
+<body onload="checkLoginStatus()">
 
+    <!-- Header -->
     <header class="header">
         <button class="openbtn" onclick="openNav()">☰</button>
         <div id="mySidenav" class="sidenav">
-            <span class="closebtn" onclick="closeNav()">×</span>
-            <a href="about.html">About</a>
-            <a href="#">Home</a>
-            <a href="#features">Features</a>
-            <a href="contact.html">Contact</a>
+            <a href="javascript:void(0)" class="closebtn" onclick="closeNav()">&times;</a>
+            <div class="profile-dropdown">
+                <img src="default-profile.png" id="userProfilePic" alt="Profile" class="profile-pic" onclick="toggleProfileMenu()">
+                <span id="username">Guest</span>
+                <div class="profile-menu" id="profileMenu">
+                    <a href="profile.html">View Profile</a>
+                    <a href="settings.html">Settings</a>
+                    <a href="#" onclick="logout()">Logout</a>
+                </div>
+            </div>
+            
         </div>
+        
         <div class="container">
             <h1 class="logo">Online Travel Planning & Booking Platform</h1>
             <nav class="navigation">
@@ -44,37 +52,23 @@
             </nav>
         </div>
     </header>
-    <script>
-        function closeNav() {
-    document.getElementById("mySidenav").style.width = "0";
-    document.body.style.overflow = "auto"; // Enable scrolling again
-}
-document.addEventListener("DOMContentLoaded", function () {
-    const inputBox = document.getElementById("input-box");
-
-    inputBox.addEventListener("keyup", showSuggestions);
-    inputBox.addEventListener("keypress", handleEnter);
-});
-if (typeof Storage !== "undefined") {
-    checkLoginStatus();
-} else {
-    alert("Your browser does not support local storage. Some features may not work.");
-}
-
-    </script>
 
     <!-- Hero Section -->
     <section class="hero">
         <div class="container">
             <h2>Plan Your Adventure</h2>
             <p>Discover amazing destinations, create custom itineraries, and make your dream trip a reality.</p>
+
+            <!-- Search Box -->
             <div class="searchbox">
-                <input type="text" id="input-box" placeholder="Search anything" onkeyup="showSuggestions()" onkeypress="handleEnter(event)">
+                <input type="text" id="input-box" placeholder="Search anything" 
+                    autocomplete="off" autocorrect="off" 
+                    onkeyup="showSuggestions()" onkeypress="handleEnter(event)">
                 <button onclick="redirectToPage(document.getElementById('input-box').value)">
                     <i class="fa-solid fa-magnifying-glass"></i>
                 </button>
+                <div id="suggestions" class="suggestion-box"></div>
             </div>
-            <div id="suggestions" class="suggestion-box"></div>
         </div>
     </section>
 
@@ -90,20 +84,8 @@ if (typeof Storage !== "undefined") {
         </div>
     </section>
 
-    <!-- Destinations Section -->
-    <section id="destinations" class="destinations">
-        <div class="container">
-            <h3>Popular Destinations</h3>
-            <div class="destination-list">
-                <div class="destination"><img src="paris.jpg" alt="Paris"><h4>Paris</h4><p>One of the most iconic travel destinations.</p></div>
-                <div class="destination"><img src="india.jpg" alt="India"><h4>India</h4><p>A diverse and vibrant country in South Asia.</p></div>
-                <div class="destination"><img src="newyork.jpg" alt="New York"><h4>New York</h4><p>An iconic city with endless attractions.</p></div>
-            </div>
-        </div>
-    </section>
-
-        <a href="login.html" class="logout-btn" onclick="logout()">Logout</a>
-
+    <!-- Logout Button -->
+    <a href="login.html" class="logout-btn" onclick="logout(); return false;">Logout</a>
 
     <!-- Footer -->
     <footer class="footer">
@@ -115,30 +97,34 @@ if (typeof Storage !== "undefined") {
 
     <!-- JavaScript -->
     <script>
-        const places = ["India", "London", "New York", "Paris", "Tokyo", "TajMahal", "Pattaya", "Thailand", "statue of liberty & ellis island", "Kerala", "Bangkok"];
+        const places = [
+            "Bangkok", "India", "Kerala", "London", "New York", "Paris", "Pattaya",
+            "Statue of Liberty & Ellis Island", "Taj Mahal", "Thailand", "Tokyo", "Switzerland",
+            "Goa", "Ooty", "Kodaikanal", "Munnar", "Couple Trip", "Family Trip", "College Trip", "Devotional Trip"
+        ];
 
         function showSuggestions() {
-            let input = document.getElementById("input-box").value.toLowerCase();
+            let input = document.getElementById("input-box").value.toLowerCase().trim();
             let suggestionBox = document.getElementById("suggestions");
             suggestionBox.innerHTML = "";
-            
-            if (input === "") {
+
+            if (!input) {
                 suggestionBox.style.display = "none";
                 return;
             }
 
-            let filteredSuggestions = places.filter(item => item.toLowerCase().includes(input));
+            let filteredSuggestions = places.filter(place => place.toLowerCase().includes(input));
 
             if (filteredSuggestions.length > 0) {
                 suggestionBox.style.display = "block";
-                filteredSuggestions.forEach(item => {
+                filteredSuggestions.forEach(place => {
                     let div = document.createElement("div");
-                    div.textContent = item;
+                    div.textContent = place;
                     div.classList.add("suggestion-item");
-                    div.onclick = function () {
-                        document.getElementById("input-box").value = item;
+                    div.onclick = () => {
+                        document.getElementById("input-box").value = place;
                         suggestionBox.style.display = "none";
-                        redirectToPage(item);
+                        redirectToPage(place);
                     };
                     suggestionBox.appendChild(div);
                 });
@@ -148,26 +134,29 @@ if (typeof Storage !== "undefined") {
         }
 
         function redirectToPage(query) {
+            if (!query.trim()) return;
+
             const formattedQuery = query.toLowerCase().replace(/\s+/g, '');
-            let pageMap = {
-                "statueofliberty&ellisisland": "statue.html",
+            const pageMap = {
+                "bangkok": "bangkok.html",
                 "india": "india.html",
+                "kerala": "kerala.html",
                 "london": "london.html",
                 "newyork": "newyork.html",
                 "paris": "paris.html",
-                "tokyo": "tokyo.html",
-                "tajmahal": "tajmahal.html",
                 "pattaya": "pattaya.html",
+                "statueofliberty&ellisisland": "statue.html",
+                "tajmahal": "tajmahal.html",
                 "thailand": "thailand.html",
-                "kerala": "kerala.html",
-                "bangkok": "bangkok.html"
+                "tokyo": "tokyo.html",
+                "switzerland": "switzerland.html",
+                "coupletrip": "couple.html",
+                "familytrip": "family.html",
+                "collegetrip": "college.html",
+                "devotionaltrip": "god.html"
             };
 
-            if (pageMap[formattedQuery]) {
-                window.location.href = `${pageMap[formattedQuery]}?name=${encodeURIComponent(query)}`;
-            } else {
-                window.location.href = `search.html?q=${encodeURIComponent(query)}`;
-            }
+            window.location.href = pageMap[formattedQuery] || `search.html?q=${encodeURIComponent(query)}`;
         }
 
         function handleEnter(event) {
@@ -185,19 +174,73 @@ if (typeof Storage !== "undefined") {
         }
 
         function checkLoginStatus() {
-        if (!localStorage.getItem("isLoggedIn")) {
-            window.location.href = "login.html"; // Redirect if not logged in
+            if (!localStorage.getItem("isLoggedIn")) {
+                window.location.href = "login.html"; 
+            }
+        }
+
+        function logout() {
+            localStorage.removeItem("isLoggedIn");
+            localStorage.removeItem("currentUser");
+            window.location.href = "login.html"; 
+        }
+
+    function openNav() {
+        document.getElementById("mySidenav").style.width = "250px";
+    }
+
+    function closeNav() {
+        document.getElementById("mySidenav").style.width = "0";
+    }
+
+
+    // Function to check login status and display profile
+    function checkLoginStatus() {
+        let user = JSON.parse(localStorage.getItem("currentUser"));
+
+        if (user) {
+            document.getElementById("username").textContent = user.name;
+            document.getElementById("userProfilePic").src = user.profilePic || "default-profile.png";
+        } else {
+            document.getElementById("username").textContent = "Guest";
         }
     }
 
-    function logout() {
-        localStorage.removeItem("isLoggedIn");
-        localStorage.removeItem("currentUser");
-        window.location.href = "login.html"; // Redirect to login after logout
+    // Function to toggle profile menu
+    function toggleProfileMenu() {
+        let menu = document.getElementById("profileMenu");
+        menu.style.display = menu.style.display === "block" ? "none" : "block";
     }
 
-    // Run check on page load
-    checkLoginStatus();
+    // Function to log out user
+    function logout() {
+        localStorage.removeItem("currentUser");
+        window.location.href = "login.html"; 
+    }
+
+    // Close dropdown when clicking outside
+    document.addEventListener("click", function(event) {
+        let menu = document.getElementById("profileMenu");
+        if (!event.target.closest(".profile-dropdown")) {
+            menu.style.display = "none";
+        }
+    });
+
+    // Run checkLoginStatus on page load
+    window.onload = checkLoginStatus;
+
+    // Sample login function
+    function loginUser() {
+        let user = {
+            name: "John Doe",
+            profilePic: "profile.jpg" // Replace with actual uploaded image URL
+        };
+
+        localStorage.setItem("currentUser", JSON.stringify(user));
+        localStorage.setItem("isLoggedIn", "true");
+        window.location.href = "index.html"; // Redirect to homepage
+    }
+
     </script>
 
 </body>
