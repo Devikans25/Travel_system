@@ -18,20 +18,43 @@
     <div class="container">
         <div class="section">
             <h2>Why Visit Paris?</h2>
-            <p>Paris, the "City of Light", is known for its stunning architecture, rich culture, and delicious cuisine. From the Eiffel Tower to the Louvre Museum, there's something for every traveler.</p>
+            <p>Paris, the "City of Light", is known for its stunning architecture, rich culture, and delicious cuisine. 
+                From the Eiffel Tower to the Louvre Museum, there's something for every traveler.</p>
         </div>
 
-    <div class="destination">
-        <img src="paris1.jpg">
-        <img src="paris2.jpg">
-        <img src="paris3.jpg">
-        <img src="paris4.jpg">
-    </div>
-
-        <!-- Booking Section -->
-        <div class="sections">
-            <button class="booking-button" onclick="navigateTo('book.html')">Book Now</button>
+        <!-- Image Gallery -->
+        <div class="destination">
+            <img src="paris1.jpg" alt="Eiffel Tower">
+            <img src="paris2.jpg" alt="Seine River">
+            <img src="paris3.jpg" alt="Louvre Museum">
+            <img src="paris4.jpg" alt="Notre Dame">
         </div>
+
+        <!-- Romantic Places in Paris Section -->
+        <div class="romantic-section">
+            <h2>Most Romantic Places in Paris</h2>
+            <div class="romantic-places">
+                <div class="place">
+                    <img src="montmartre.jpg" alt="Montmartre">
+                    <h3>Montmartre</h3>
+                    <p>A charming neighborhood with cobbled streets, artists, and a romantic view from the Sacré-Cœur.</p>
+                    <button class="booking-button" onclick="bookNow('book.html')">Book Now</button>
+                </div>
+                <div class="place">
+                    <img src="seine.jpg" alt="Seine River Cruise">
+                    <h3>Seine River Cruise</h3>
+                    <p>A dreamy boat ride along the Seine, passing under illuminated bridges and famous landmarks.</p>
+                    <button class="booking-button" onclick="bookNow('book.html')">Book Now</button>
+                </div>
+                <div class="place">
+                    <img src="eiffel.jpg" alt="Eiffel Tower Picnic">
+                    <h3>Eiffel Tower Picnic</h3>
+                    <p>Enjoy a romantic picnic at Champ de Mars, with the Eiffel Tower as your backdrop.</p>
+                    <button class="booking-button" onclick="bookNow('book.html')">Book Now</button>
+                </div>
+            </div>
+        </div>
+
     </div>
 
     <!-- Footer -->
@@ -41,8 +64,8 @@
 
     <!-- SCRIPT -->
     <script>
-        function navigateTo(url) {
-            window.location.href = url;
+        function bookNow(destinationPage) {
+            window.location.href = destinationPage;
         }
     </script>
 
