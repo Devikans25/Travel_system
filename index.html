@@ -16,13 +16,14 @@
     <header class="header">
         <button class="openbtn" onclick="openNav()">☰</button>
         <div id="mySidenav" class="sidenav">
-            <a href="javascript:void(0)" class="closebtn" onclick="closeNav()">&times;</a>
+            <button class="closebtn" onclick="closeNav()">☰</button>
             <div class="profile-dropdown">
                 <img src="default-profile.png" id="userProfilePic" alt="Profile" class="profile-pic" onclick="toggleProfileMenu()">
-                <span id="username">Guest</span>
+                <br><span id="username"><br>Guest<br></span>
                 <div class="profile-menu" id="profileMenu">
                     <a href="profile.html">View Profile</a>
                     <a href="settings.html">Settings</a>
+                    <a href="about.html">About</a>
                     <a href="#" onclick="logout()">Logout</a>
                 </div>
             </div>
@@ -61,7 +62,7 @@
 
             <!-- Search Box -->
             <div class="searchbox">
-                <input type="text" id="input-box" placeholder="Search anything" 
+                <input type="text" id="input-box" placeholder="Search Your Destination..." 
                     autocomplete="off" autocorrect="off" 
                     onkeyup="showSuggestions()" onkeypress="handleEnter(event)">
                 <button onclick="redirectToPage(document.getElementById('input-box').value)">
