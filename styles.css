@@ -245,32 +245,61 @@ body {
     margin-top: 10px;
 }
 
-/* Search Box */
+/* Search Box Container */
 .searchbox {
-    margin-top: 20px;
     position: relative;
+    width: 100%;
+    max-width: 400px;
+    margin: auto;
 }
 
 .searchbox input {
+    width: 100%;
     padding: 10px;
-    width: 300px;
     border: 1px solid #ccc;
     border-radius: 5px;
+    font-size: 16px;
     outline: none;
 }
 
 .searchbox button {
-    padding: 10px;
-    background: #0a9396;
+    position: absolute;
+    right: 0px;
+    top: 50%;
+    transform: translateY(-50%);
+    background: wheat;
+    color: #fff;
     border: none;
-    color: white;
-    cursor: pointer;
+    padding: 8px 12px;
     border-radius: 5px;
-    margin-left: 5px;
+    cursor: pointer;
 }
 
-.searchbox button:hover {
-    background: #005f73;
+.searchbox button i {
+    font-size: 16px;
+}
+
+.suggestion-box {
+    position: absolute;
+    width: 100%;
+    background: #fff;
+    color: black;
+    border: 1px solid #ccc;
+    border-top: none;
+    max-height: 200px;
+    overflow-y: auto;
+    z-index: 10;
+    display: none;
+}
+
+.suggestion-box div {
+    padding: 10px;
+    cursor: pointer;
+    border-bottom: 1px solid #eee;
+}
+
+.suggestion-box div:hover {
+    background: #f0f0f0;
 }
 
 /* Features Section */
